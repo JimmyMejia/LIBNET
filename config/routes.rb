@@ -4,6 +4,11 @@ LIBNET::Application.routes.draw do
 
   #RECURSOS DISPONIBLES (CONTROLADORES)
   resources :usuarios
+  resources :usuario_session
+  post 'usuario/login' => "usuario_session#new", as: :login
+
+  #post "usuario_session/login" => "usuario_session#new" #, as: :login
+  #post "usuario/logout" => "usuario_session#destroy" #, as: :logout
 
   #get "usuarios/index"
   # The priority is based upon order of creation: first created -> highest priority.
