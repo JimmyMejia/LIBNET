@@ -1,21 +1,45 @@
-<h1>Lista de Usuarios</h1>
+<h1>Listing usuarios</h1>
 
-<table border = "1">
-  <tr>
-    <th>Tipo de Usuario</th>
-    <th>Identificacion</th>
-    <th>Nombre</th>
-  </tr>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Tipousuario</th>
+      <th>Identificacion</th>
+      <th>Nombre</th>
+      <th>Direccion</th>
+      <th>Telefono</th>
+      <th>Celular</th>
+      <th>Fecharegistro</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Estado</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
-  <% @user.each do |u| %>
+  <tbody>
+    <% @usuarios.each do |usuario| %>
       <tr>
-        <td> <%= u.tipousuario %></td>
-        <td> <%= u.identificacion %></td>
-        <td><%= u.nombre %></td>
+        <td><%= usuario.tipousuario %></td>
+        <td><%= usuario.identificacion %></td>
+        <td><%= usuario.nombre %></td>
+        <td><%= usuario.direccion %></td>
+        <td><%= usuario.telefono %></td>
+        <td><%= usuario.celular %></td>
+        <td><%= usuario.fecharegistro %></td>
+        <td><%= usuario.username %></td>
+        <td><%= usuario.email %></td>
+        <td><%= usuario.estado %></td>
+        <td><%= link_to 'Show', usuario %></td>
+        <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
+        <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-  <% end %>
+    <% end %>
+  </tbody>
 </table>
 
-</p>
+<br>
 
-
+<%= link_to 'New Usuario', new_usuario_path %>

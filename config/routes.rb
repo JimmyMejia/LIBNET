@@ -1,6 +1,6 @@
 LIBNET::Application.routes.draw do
 
-  root 'usuarios#index'
+  root 'usuarios#new'
 
   #RECURSOS DISPONIBLES (CONTROLADORES)
   resources :usuarios

@@ -1,0 +1,1 @@
+json.extract! @usuario, :tipousuario, :integer, :identificacion, :nombre, :direccion, :telefono, :celular, :fecharegistro, :username, :email, :crypted_password, :salt, :estado, :created_at, :updated_at

@@ -1,0 +1,65 @@
+<%= form_for(@usuario) do |f| %>
+  <% if @usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+
+      <ul>
+      <% @usuario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tipousuario %><br>
+    <%= f.text_field :tipousuario %>
+  </div>
+  <div class="field">
+    <%= f.label :identificacion %><br>
+    <%= f.text_field :identificacion, {:size => "25", :maxlength => "30"} %>
+  </div>
+  <div class="field">
+    <%= f.label :nombre %><br>
+    <%= f.text_field :nombre, {:size => "20", :maxlength => "80", placeholder: "Jimmy Mejia"} %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br>
+    <%= f.text_area :direccion, {:size => ""} %>
+  </div>
+  <div class="field">
+    <%= f.label :telefono %><br>
+    <%= f.phone_field :telefono, {:size=>"10", :maxlength=>"8"} %>
+  </div>
+  <div class="field">
+    <%= f.label :celular %><br>
+    <%= f.phone_field :celular, {:size=>"10", :maxlength=>"8"} %>
+  </div>
+  <div class="field">
+    <%= f.label :fecharegistro %><br>
+    <%= f.datetime_select :fecharegistro %>
+  </div>
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="field">
+    <%= f.label :estado %><br>
+    <%= f.number_field :estado %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
