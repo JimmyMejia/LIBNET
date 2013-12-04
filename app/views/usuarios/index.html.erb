@@ -1,0 +1,21 @@
+<h1>Lista de Usuarios</h1>
+
+<table border = "1">
+  <tr>
+    <th>Tipo de Usuario</th>
+    <th>Identificacion</th>
+    <th>Nombre</th>
+  </tr>
+
+  <% @user.each do |u| %>
+      <tr>
+        <td> <%= u.tipousuario %></td>
+        <td> <%= u.identificacion %></td>
+        <td><%= u.nombre %></td>
+      </tr>
+  <% end %>
+</table>
+
+</p>
+
+
