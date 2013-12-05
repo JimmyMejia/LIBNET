@@ -3,10 +3,13 @@ LIBNET::Application.routes.draw do
   root 'usuarios#new'
 
   #RECURSOS DISPONIBLES (CONTROLADORES)
-  resources :usuarios
-  resources :usuario_session
-  post 'usuario/login' => "usuario_session#new", as: :login
 
+  resources :usuarios
+  resources :sessions, :only => [:new, :create, :destroy]
+  get 'login' => "sessions#new"
+  get 'logout' => "session#destroy"
+
+   
   #post "usuario_session/login" => "usuario_session#new" #, as: :login
   #post "usuario/logout" => "usuario_session#destroy" #, as: :logout
 

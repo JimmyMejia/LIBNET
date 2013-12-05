@@ -1,2 +1,0 @@
-class UsuariosSessionController < ApplicationController
-end
