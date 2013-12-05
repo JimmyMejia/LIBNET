@@ -71,4 +71,9 @@ class UsuariosController < ApplicationController
     def usuario_params
       params.require(:usuario).permit(:tipousuario, :integer, :identificacion, :nombre, :direccion, :telefono, :celular, :fecharegistro, :username, :email, :crypted_password, :salt, :estado)
     end
+
+    private
+      def view_profile
+        render 'profile.html.erb'
+      end
 end
