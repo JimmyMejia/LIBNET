@@ -7,7 +7,7 @@ LIBNET::Application.routes.draw do
   resources :usuarios
   resources :sessions, :only => [:new, :create, :destroy]
   get 'login' => "sessions#new"
-  get 'logout' => "session#destroy"
+  get 'logout' => "sessions#destroy"
 
    
   #post "usuario_session/login" => "usuario_session#new" #, as: :login
