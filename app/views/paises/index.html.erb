@@ -1,0 +1,15 @@
+<h1> Lista de Paises</h1>
+<table border="1">
+	<tr>
+		<th>Id Pais </th>
+		<th>Pais </th>
+	</tr>
+	<% @paises.each do |d| %>
+		<tr>
+			<td><%= d.Id %></td>
+			<td><%= d.Pais %></td>
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to 'Nuevo pais' %>

@@ -1,0 +1,30 @@
+<h1> Nueva Biblioteca</h1>
+
+<%= form_for :bibliotecas, url: bibliotecas_path do |f| %>
+<div class="field">
+	<%= f.label :nombre %>
+	<%= f.text_field :nombre, {:size => "30", :maxlength => "50"} %>	
+</div>
+<div class="field">
+	<%= f.label :direccion %>
+	<%= f.text_area :direccion %>
+</div>
+<div class="field">
+	<%= f.label :telefono %>
+	<%= f.text_field :telefono, {:size => "10", :maxlength => "8"} %>
+</div>
+<div class="field">
+	<%= f.label :email %>
+	<%= f.text_field :email, {:size => "35", :maxlength => "40"} %>
+</div>
+<div class="field">
+	<%= f.label :logo %>
+	<%= f.text_field :logo, {:size => "80", :maxlength => "250"} %>
+</div>
+
+<div class="actions">
+	<%= f.submit 'Guardar'%>
+</div>
+
+<% end %>
+

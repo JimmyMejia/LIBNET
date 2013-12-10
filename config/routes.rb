@@ -1,13 +1,21 @@
 LIBNET::Application.routes.draw do
 
+  get "paises/new"
+  get "bibliotecas/index"
   root 'usuarios#new'
 
   #RECURSOS DISPONIBLES (CONTROLADORES)
-
   resources :usuarios
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :bibliotecas
+  resources :paises
+
+
   get 'login' => "sessions#new"
   get 'logout' => "session#destroy"
+  get 'nuevabiblioteca' => "bibliotecas#new"
+  get 'nuevopais' => "paises#new"
+  get 'verpaises' => "paises#index"
 
    
   #post "usuario_session/login" => "usuario_session#new" #, as: :login
