@@ -16,6 +16,8 @@ LIBNET::Application.routes.draw do
   get 'nuevabiblioteca' => "bibliotecas#new"
   get 'nuevopais' => "paises#new"
   get 'verpaises' => "paises#index"
+  get 'logout' => "sessions#destroy"
+
 
    
   #post "usuario_session/login" => "usuario_session#new" #, as: :login
