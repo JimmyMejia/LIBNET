@@ -1,29 +1,30 @@
 class PaisesController < ApplicationController
   def index
-  	@pais = Pais.all
+  	@paises = Pais.all
   end
 
   def new
-  	@pais = Pais.new
+  	@nuevo_pais = Pais.new
   end
 
   def create
-  	@pais = Pais.new(pais_params)
-  	if @pais.save
-      flash[:notice] = "Pais guardado satisfactoriamente"
+  	@nuevo_pais = Pais.new(params[:Pais].permit(:pais))
+  	if @nuevo_pais.save
+      flash[:notice] = "Pais guardado satisfactoriamente."
       flash[:color]= "valid"
-      #redired_to @data
+      redirect_to paises_path
     else
-      flash[:notice] = "Error al guardar el pais"
+      flash[:notice] = "Error al guardar el pais."
       flash[:color]= "invalid"
+      render action: 'new'
     end
-    render "index"
+    #redirect_to :controller => 'paises', :action => 'index'
 
   end
 
-  def show
-  	@data = Pais.find(params[:id])
-  end
+  # def show
+  # 	@data = Pais.find(params[:id])
+  # end
 
   def pais_params
   	params.require(:Pais).permit(:pais)

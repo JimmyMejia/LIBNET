@@ -11,11 +11,13 @@ LIBNET::Application.routes.draw do
   resources :paises
 
 
+  #get 'paises/nuevopais' => "paises#new"
   get 'login' => "sessions#new"
   get 'logout' => "session#destroy"
   get 'nuevabiblioteca' => "bibliotecas#new"
   get 'nuevopais' => "paises#new"
   get 'verpaises' => "paises#index"
+  #get 'paises/verpaises' => "paises#index"
   get 'logout' => "sessions#destroy"
 
 
