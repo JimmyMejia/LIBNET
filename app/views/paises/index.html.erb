@@ -4,11 +4,17 @@
 	<tr>
 		<th>Id Pais </th>
 		<th>Pais </th>
+		<th></th>
+		<th></th>
+		<th></th>
 	</tr>
 	<% @paises.each do |d| %>
 		<tr>
 			<td><%= d.id %></td>
 			<td><%= d.pais %></td>
+			<td><%= link_to 'Ver'%></td>
+			<td><%= link_to 'Editar', paises_path(d) %></td>			
+			<td><%= link_to 'Eliminar' %></td>
 		</tr>
 	<% end %>
 </table>

@@ -1,0 +1,32 @@
+<h2>Lista de Bibliotecas</h2>
+<p id="notice"><%= notice %></p>
+<table border = "1">
+	<tr>
+		<th>Id Biblioteca</th>
+		<th>Nombre</th>
+		<th>Dirección</th>
+		<th>Télefono</th>
+		<th>Email</th>
+		<th>Estado</th>
+		<th>Logo</th>
+		<th></th>
+		<th></th>
+		<th></th>
+	</tr>
+	<% @bibliotecas.each do |b| %>
+	<tr>
+		<td><%= b.id %></td>
+		<td><%= b.nombre %></td>
+		<td><%= b.direccion %></td>
+		<td><%= b.telefono %></td>
+		<td><%= b.email %></td>
+		<td><%= b.estado %></td>
+		<td><%= b.logo %></td>
+		<td><%= link_to 'Ver',b %></td>
+		<td><%= link_to 'Editar', bibliotecas_path(b) %></td>
+		<td><%= link_to 'Eliminar', b , method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+	</tr>
+	<% end %>
+</table>
+
+<%= link_to 'Nueva biblioteca', nuevabiblioteca_path %>

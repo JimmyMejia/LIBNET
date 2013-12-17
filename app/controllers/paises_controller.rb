@@ -1,4 +1,5 @@
 class PaisesController < ApplicationController
+  before_action :set_pais, only: [:show, :edit, :update, :destroy]
   def index
   	@paises = Pais.all
   end
@@ -18,13 +19,21 @@ class PaisesController < ApplicationController
       flash[:color]= "invalid"
       render action: 'new'
     end
-    #redirect_to :controller => 'paises', :action => 'index'
-
   end
 
-  # def show
-  # 	@data = Pais.find(params[:id])
-  # end
+  def show
+    @nuevo_pais = Pais.find(params[:id])
+  end
+
+  def destroy
+    @nuevo_pais.destroy
+    flash[:notice] = "Pais guardado satisfactoriamente."
+    redirect_to paises_path
+  end
+
+  def set_pais
+    @nuevo_pais = Pais.find(params[:id])
+  end
 
   def pais_params
   	params.require(:Pais).permit(:pais)

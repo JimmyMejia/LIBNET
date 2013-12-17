@@ -17,6 +17,7 @@ LIBNET::Application.routes.draw do
   get 'nuevabiblioteca' => "bibliotecas#new"
   get 'nuevopais' => "paises#new"
   get 'verpaises' => "paises#index"
+  get 'verbibliotecas' => "bibliotecas#index"
   #get 'paises/verpaises' => "paises#index"
   get 'logout' => "sessions#destroy"
 

@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p><strong>Nombre:</strong>
+	<%= @nueva_biblioteca.nombre %>	
+</p>
+
+<p><strong>Dirección:</strong>
+	<%= @nueva_biblioteca.direccion %>
+</p>
+
+<p><strong>Telefono:</strong>
+	<%= @nueva_biblioteca.telefono %>
+</p>
+
+<p><strong>Email:</strong>
+	<%= @nueva_biblioteca.email %>
+</p>
+
+<p><strong>Estado:</strong>
+	<%= @nueva_biblioteca.estado %>
+</p>
+
+<p><strong>Logo</strong>
+	<%= @nueva_biblioteca.logo %>
+</p>
+
+<%= link_to 'Editar', edit_biblioteca_path(@nueva_biblioteca)%>
+<%= link_to 'Atras', bibliotecas_path %>
