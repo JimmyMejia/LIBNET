@@ -10,21 +10,31 @@ class BibliotecasController < ApplicationController
 
   def create
   	@nueva_biblioteca = Biblioteca.new(params_biblioteca)
-  	if @nueva_biblioteca.save
-  		flash[:notice] = "Biblioteca guardada correctamente."
-  		flash[:color] = "valid"
-  		redirect_to bibliotecas_path
-  	else
-  		flash[:notice] = "Error al guardar la biblioteca."
-  		flash[:color] = "invalid"
-  		render action: "new"
-  	end
+    respond_to do |format|
+    	if @nueva_biblioteca.save
+    		format.html { redirect_to @nueva_biblioteca, notice: "Biblioteca guardada correctamente."}
+    		# flash[:color] = "valid"
+    		# redirect_to bibliotecas_path
+    	else
+    		format.html {	render action: "new" }
+    	end
+    end
   end
 
   def show
   end
 
   def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @nueva_biblioteca.update(params_biblioteca)
+        format.html { redirect_to @nueva_biblioteca, notice: "Biblioteca actualizada correctamente." }
+      else
+        format.html { render action: "edit" }
+      end
+    end
   end
 
   def destroy

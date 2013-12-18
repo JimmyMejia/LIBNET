@@ -1,7 +1,11 @@
 class PaisesController < ApplicationController
   before_action :set_pais, only: [:show, :edit, :update, :destroy]
+
   def index
   	@paises = Pais.all
+  end
+
+  def show
   end
 
   def new
@@ -9,26 +13,26 @@ class PaisesController < ApplicationController
   end
 
   def create
-  	@nuevo_pais = Pais.new(params[:Pais].permit(:pais))
-  	if @nuevo_pais.save
-      flash[:notice] = "Pais guardado satisfactoriamente."
-      flash[:color]= "valid"
-      redirect_to paises_path
-    else
-      flash[:notice] = "Error al guardar el pais."
-      flash[:color]= "invalid"
-      render action: 'new'
+  	@nuevo_pais = Pais.new(params[:nuevo_pais])
+      respond_to do |format|
+        if @nuevo_pais.save
+            format.html { redirect_to @nuevo_pais, notice: "Pais guardado satisfactoriamente." }         
+        else
+         format.html { render action: 'new' }
+        end
+      end
+  end
+
+   def destroy
+    #@nuevo_pais.destroy
+    respond_to do |format|
+      if @nuevo_pais.destroy
+         format.html { redirect_to paises_url, notice: "Pais eliminado satisfactoriamente." }
+       else
+        format.html { reirect_to paises_path, notice: "No se pudo eliminar el pais."}
+      end
     end
-  end
-
-  def show
-    @nuevo_pais = Pais.find(params[:id])
-  end
-
-  def destroy
-    @nuevo_pais.destroy
-    flash[:notice] = "Pais guardado satisfactoriamente."
-    redirect_to paises_path
+    #redirect_to paises_path
   end
 
   def set_pais
@@ -36,6 +40,6 @@ class PaisesController < ApplicationController
   end
 
   def pais_params
-  	params.require(:Pais).permit(:pais)
+  	params.require(:pais).permit(:pais)
   end
 end

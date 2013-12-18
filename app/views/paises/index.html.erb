@@ -1,22 +1,26 @@
-<h1> Lista de Paises</h1>
-<p id="notice"><%= notice %></p>
-<table border="1">
-	<tr>
-		<th>Id Pais </th>
-		<th>Pais </th>
-		<th></th>
-		<th></th>
-		<th></th>
-	</tr>
-	<% @paises.each do |d| %>
-		<tr>
-			<td><%= d.id %></td>
-			<td><%= d.pais %></td>
-			<td><%= link_to 'Ver'%></td>
-			<td><%= link_to 'Editar', paises_path(d) %></td>			
-			<td><%= link_to 'Eliminar' %></td>
-		</tr>
-	<% end %>
-</table>
+<h1>Lista de Paises</h1>
 
+<table border="1">
+	<thead>
+		<tr>
+			<th>Id Pais</th>
+			<th>Pais</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @paises.each do |p| %>
+			<tr>
+				<td><%= p.id %></td>
+				<td><%= p.pais %></td>
+				<td><%= link_to 'Ver' %></td>
+				<td><%= link_to 'Editar' %></td>			
+				<td><%= link_to 'Eliminar' %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+<br>
 <%= link_to 'Nuevo pais', nuevopais_path %>

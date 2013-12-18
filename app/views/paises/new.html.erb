@@ -1,23 +1,5 @@
 <h1>Nuevo Pais</h1>
-<%= form_for :Pais, url: paises_path do |f| %>
-<% if @nuevo_pais.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@nuevo_pais.errors.count, "error") %> antes de guardar:</h2>
-      <ul>
-      <% @nuevo_pais.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-<div class="field">
-	<%= f.label :pais %>
-	<%= f.text_field :pais, {:size => "20", :maxlength => "30" } %> 
-</div>
+<%= render 'form' %>
 
-<div class="actions">
-	<%= f.submit 'Guardar' %>
-</div>
-
-<% end %>
+<%= link_to 'Atras', paises_path %>

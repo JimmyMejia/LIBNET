@@ -1,25 +1,32 @@
 LIBNET::Application.routes.draw do
 
+  get "idiomas/index"
   get "paises/new"
   get "bibliotecas/index"
-  root 'usuarios#new'
+  root 'sessions#new'
 
   #RECURSOS DISPONIBLES (CONTROLADORES)
   resources :usuarios
   resources :sessions, :only => [:new, :create, :destroy]
   resources :bibliotecas
-  resources :paises
+  #resources :paises
+  resources :idiomas
 
 
-  #get 'paises/nuevopais' => "paises#new"
+  #post '/paises/nuevopais' :to => 'paises#new'
+
   get 'login' => "sessions#new"
   get 'logout' => "session#destroy"
   get 'nuevabiblioteca' => "bibliotecas#new"
-  get 'nuevopais' => "paises#new"
-  get 'verpaises' => "paises#index"
   get 'verbibliotecas' => "bibliotecas#index"
-  #get 'paises/verpaises' => "paises#index"
-  get 'logout' => "sessions#destroy"
+
+  get 'paises' => "paises#index"
+  get 'nuevopais' => "paises#new"
+  post 'verpaises' => "paises#show"
+    
+  get 'idiomas' => "idiomas#index"
+  get 'nuevoidioma' => "idiomas#new"
+  get 'veridioma' => "idiomas#show"
 
 
    

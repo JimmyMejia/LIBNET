@@ -23,7 +23,7 @@
 		<td><%= b.estado %></td>
 		<td><%= b.logo %></td>
 		<td><%= link_to 'Ver',b %></td>
-		<td><%= link_to 'Editar', bibliotecas_path(b) %></td>
+		<td><%= link_to 'Editar', edit_biblioteca_path(b) %></td>
 		<td><%= link_to 'Eliminar', b , method: :delete, data: { confirm: 'Esta seguro?' } %></td>
 	</tr>
 	<% end %>
