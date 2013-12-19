@@ -15,9 +15,9 @@
 			<tr>
 				<td><%= p.id %></td>
 				<td><%= p.pais %></td>
-				<td><%= link_to 'Ver' %></td>
-				<td><%= link_to 'Editar' %></td>			
-				<td><%= link_to 'Eliminar' %></td>
+				<td><%= link_to 'Ver', p %></td>
+				<td><%= link_to 'Editar', edit_pai_path(p) %></td>			
+				<td><%= link_to 'Eliminar', p, method: :delete, action: { confirm: "Esta seguro?" } %></td>
 			</tr>
 		<% end %>
 	</tbody>

@@ -1,33 +1,44 @@
 LIBNET::Application.routes.draw do
 
-  get "idiomas/index"
-  get "paises/new"
-  get "bibliotecas/index"
+  get "tipoprestamos/index"
+  #get "idiomas/index"
+  #get "paises/new"
+  #get "bibliotecas/index"
   root 'sessions#new'
 
   #RECURSOS DISPONIBLES (CONTROLADORES)
   resources :usuarios
   resources :sessions, :only => [:new, :create, :destroy]
   resources :bibliotecas
-  #resources :paises
+  resources :pais, :singular => :paises #EXISTE PROBLEMAS EN LOS RUTEOS HAY Q ESPECIFICAR EL SINGULAR PARA EL RECURSO, http://stackoverflow.com/questions/2610335/rails-scaffold-problem-undefined-method-edit-pais-path
   resources :idiomas
+  resources :tipoprestamos
 
 
   #post '/paises/nuevopais' :to => 'paises#new'
 
   get 'login' => "sessions#new"
   get 'logout' => "session#destroy"
-  get 'nuevabiblioteca' => "bibliotecas#new"
-  get 'verbibliotecas' => "bibliotecas#index"
 
-  get 'paises' => "paises#index"
-  get 'nuevopais' => "paises#new"
-  post 'verpaises' => "paises#show"
+  # CRUD LISTO
+  get 'bibliotecas' => 'bibliotecas#index'
+  get 'nuevabiblioteca' => "bibliotecas#new"
+  get 'verbibliotecas' => "bibliotecas#show"
     
+  # CRUD LISTO
   get 'idiomas' => "idiomas#index"
   get 'nuevoidioma' => "idiomas#new"
   get 'veridioma' => "idiomas#show"
 
+  # CRUD CON ERRORES DE RUTEO
+  get 'paises' => "paises#index"
+  get 'nuevopais' => "paises#new"
+  get 'verpaises' => "paises#show"
+
+  # CRUD LISTO
+  get 'tipoprestamos' => "tipoprestamos#index"
+  get 'nuevotipoprestamo' => "tipoprestamos#new"
+  get 'vertipoprestamos' => "tipoprestamos#show"
 
    
   #post "usuario_session/login" => "usuario_session#new" #, as: :login

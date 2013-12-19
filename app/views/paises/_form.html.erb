@@ -1,7 +1,7 @@
 <%= form_for(@nuevo_pais) do |f| %>
   <% if @nuevo_pais.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(@nuevo_pais.errors.count, "error") %> errores antes de guardar:</h2>
+        <h2><%= pluralize(@nuevo_pais.errors.count, "error") %> antes de guardar:</h2>
         <ul>
         <% @nuevo_pais.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>

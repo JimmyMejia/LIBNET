@@ -13,7 +13,7 @@ class PaisesController < ApplicationController
   end
 
   def create
-  	@nuevo_pais = Pais.new(params[:nuevo_pais])
+  	@nuevo_pais = Pais.new(pais_params)
       respond_to do |format|
         if @nuevo_pais.save
             format.html { redirect_to @nuevo_pais, notice: "Pais guardado satisfactoriamente." }         
