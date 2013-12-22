@@ -1,9 +1,10 @@
 LIBNET::Application.routes.draw do
 
+  get "tipousuarios/index"
   get "tipoprestamos/index"
-  #get "idiomas/index"
-  #get "paises/new"
-  #get "bibliotecas/index"
+  get "idiomas/index"
+  get "paises/new"
+  get "bibliotecas/index"
   root 'sessions#new'
 
   #RECURSOS DISPONIBLES (CONTROLADORES)
@@ -13,6 +14,7 @@ LIBNET::Application.routes.draw do
   resources :pais, :singular => :paises #EXISTE PROBLEMAS EN LOS RUTEOS HAY Q ESPECIFICAR EL SINGULAR PARA EL RECURSO, http://stackoverflow.com/questions/2610335/rails-scaffold-problem-undefined-method-edit-pais-path
   resources :idiomas
   resources :tipoprestamos
+  resources :tipousuarios
 
 
   #post '/paises/nuevopais' :to => 'paises#new'
@@ -39,6 +41,11 @@ LIBNET::Application.routes.draw do
   get 'tipoprestamos' => "tipoprestamos#index"
   get 'nuevotipoprestamo' => "tipoprestamos#new"
   get 'vertipoprestamos' => "tipoprestamos#show"
+
+  #
+  get 'tipousuarios'=> "tipousuarios#index"
+  get 'nuevotipousuario'=> "tipousuarios#new"
+  get 'vertipousuarios'=> "tipousuarios#show"
 
    
   #post "usuario_session/login" => "usuario_session#new" #, as: :login

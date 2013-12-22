@@ -1,0 +1,26 @@
+<h1>Tipos de Usuarios</h1>
+
+<table border="1">
+	<thead>
+		<tr>
+			<th>Id Tipo de Usuario</th>
+			<th>Tipo de Usuario</th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>		
+	</thead>
+	<tbody>
+		<% @tipousuarios.each do |tu| %>
+			<tr>
+				<td><%= tu.id %></td>
+				<td><%= tu.descripcion %></td>
+				<td><%= link_to 'Ver', tu %></td>
+				<td><%= link_to 'Editar', edit_tipousuario_path(tu) %></td>
+				<td><%= link_to 'Eliminar', tu, method: :delete, data: { confirm: "Esta seguro?" } %></td>
+			</tr>	
+		<% end %>	
+	</tbody>
+</table>
+
+<%= link_to 'Nuevo Tipo de Usuario', nuevotipousuario_path %>
