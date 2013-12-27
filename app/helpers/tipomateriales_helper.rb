@@ -1,0 +1,2 @@
+module TipomaterialesHelper
+end

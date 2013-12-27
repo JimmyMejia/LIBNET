@@ -1,5 +1,6 @@
 LIBNET::Application.routes.draw do
 
+  get "tipomateriales/index"
   get "tipousuarios/index"
   get "tipoprestamos/index"
   get "idiomas/index"
@@ -11,10 +12,11 @@ LIBNET::Application.routes.draw do
   resources :usuarios
   resources :sessions, :only => [:new, :create, :destroy]
   resources :bibliotecas
-  resources :pais, :singular => :paises #EXISTE PROBLEMAS EN LOS RUTEOS HAY Q ESPECIFICAR EL SINGULAR PARA EL RECURSO, http://stackoverflow.com/questions/2610335/rails-scaffold-problem-undefined-method-edit-pais-path
+  resources :pais #, :singular => :paises #EXISTE PROBLEMAS EN LOS RUTEOS HAY Q ESPECIFICAR EL SINGULAR PARA EL RECURSO, http://stackoverflow.com/questions/2610335/rails-scaffold-problem-undefined-method-edit-pais-path
   resources :idiomas
   resources :tipoprestamos
   resources :tipousuarios
+  resources :tipomateriales #, singular: :tipomaterials
 
 
   #post '/paises/nuevopais' :to => 'paises#new'
@@ -42,10 +44,15 @@ LIBNET::Application.routes.draw do
   get 'nuevotipoprestamo' => "tipoprestamos#new"
   get 'vertipoprestamos' => "tipoprestamos#show"
 
-  #
+  # CRUD LISTO
   get 'tipousuarios'=> "tipousuarios#index"
   get 'nuevotipousuario'=> "tipousuarios#new"
   get 'vertipousuarios'=> "tipousuarios#show"
+
+  # CRUD CON ERRORES DE RUTEO
+  get 'tipomateriales' => "tipomateriales#index"
+  get 'nuevotipomaterial' => "tipomateriales#new"
+  get 'vertipomateriales' => "tipomateriales#show"
 
    
   #post "usuario_session/login" => "usuario_session#new" #, as: :login
