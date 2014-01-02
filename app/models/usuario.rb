@@ -1,6 +1,34 @@
 class Usuario < ActiveRecord::Base
 	attr_accessor :password
 
+    # Validamos en una expresion regular nuestro email
+     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    
+    validates :username, presence: { message: "es requerido." },
+                         length: { maximum: 20, too_long: "debe contener %{count} caracteres máximo." },
+                         uniqueness: { message: "ya esta registrado." }
+
+    validates :nombre, presence: { message: "es requerido." },
+                       length: { maximum: 80, too_long: "debe contener %{count} caracteres máximo." },
+                       uniqueness: { message: "ya esta registrado." }
+
+    validates :identificacion, length: { maximum: 30, too_long: "debe contener %{count} caracteres máximo." }
+
+    #validates :direccion, length: { maximum: 255, too_long: "debe contener %{count} caracteres máximo." }
+
+    validates :telefono, numericality: { only_integer: true, message: "no es un número." },
+                         length: { maximum: 8, too_long: "debe contener %{count} caracteres máximo." }
+
+    validates :celular, numericality: { only_integer: true, message: "no es un número." },
+                         length: { maximum: 8, too_long: "debe contener %{count} caracteres máximo." }
+
+
+    validates :email, format: { :with => VALID_EMAIL_REGEX , message: "el formato del email es inválido" },
+                      length: { maximum: 40, too_long: "debe contener %{count} caracteres máximo." }
+
+    validates :crypted_password, presence: { message: "es requerida." },
+                                 length: { in: 8..12, message: "debe tener entre 8 y 12 caracteres." }
+
     # Antes que guardemos el registro encriptamos el password
     before_save :encrypt_password
 

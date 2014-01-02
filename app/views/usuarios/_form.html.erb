@@ -1,7 +1,7 @@
 <%= form_for(@usuario) do |f| %>
   <% if @usuario.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+      <h2><%= pluralize(@usuario.errors.count, "error") %> antes de guardar:</h2>
 
       <ul>
       <% @usuario.errors.full_messages.each do |msg| %>
@@ -13,22 +13,22 @@
 
   <div class="field">
     <%= f.label :username %><br>
-    <%= f.text_field :username %>
+    <%= f.text_field :username, { size: 20, maxlength: 20} %>
   </div>
   <div class="field">
     <%= f.label :nombre %><br>
     <%= f.text_field :nombre, {:size => "20", :maxlength => "80", placeholder: "Jimmy Mejia"} %>
   </div>
   <div class="field">
-    <%= f.label :identificacion %><br>
+    <%= f.label :identificación %><br>
     <%= f.text_field :identificacion, {:size => "25", :maxlength => "30"} %>
   </div>
   <div class="field">
-    <%= f.label :direccion %><br>
-    <%= f.text_area :direccion, {:size => ""} %>
+    <%= f.label :dirección %><br>
+    <%= f.text_area :direccion %>
   </div>
   <div class="field">
-    <%= f.label :telefono %><br>
+    <%= f.label :teléfono %><br>
     <%= f.phone_field :telefono, {:size=>"10", :maxlength=>"8"} %>
   </div>
   <div class="field">
@@ -48,6 +48,6 @@
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Guardar' %>
   </div>
 <% end %>

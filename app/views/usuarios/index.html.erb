@@ -4,12 +4,12 @@
   <thead>
     <tr>
       <th>Tipousuario</th>
-      <th>Identificacion</th>
+      <th>Identificación</th>
       <th>Nombre</th>
-      <th>Direccion</th>
-      <th>Telefono</th>
+      <th>Dirección</th>
+      <th>Teléfono</th>
       <th>Celular</th>
-      <th>Fecharegistro</th>
+      <th>Fecha registro</th>
       <th>Username</th>
       <th>Email</th>
       <th>Estado</th>
@@ -32,9 +32,9 @@
         <td><%= usuario.username %></td>
         <td><%= usuario.email %></td>
         <td><%= usuario.estado %></td>
-        <td><%= link_to 'Show', usuario %></td>
-        <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', usuario %></td>
+        <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
+        <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +42,4 @@
 
 <br>
 
-<%= link_to 'New Usuario', new_usuario_path %>
+<%= link_to 'Nuevo Usuario', new_usuario_path %>
