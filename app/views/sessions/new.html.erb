@@ -1,23 +1,44 @@
+<!-- Sets title page -->
 <% provide(:title, "Sign in") %>
-<h1>Sign in</h1>
 
+<!-- Validates error messages -->
 <% if flash[:status] == FALSE %>
     <p><%= flash[:alert] %></p>
 <% end %>
 
-<div class="row">
-  <div class="span6 offset3">
-    <%= form_for(:session, url: sessions_path) do |f| %>
-
-      <%= f.label :email %>
-      <%= f.text_field :email %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
-    <% end %>
-
-    
+<div class="row-fluid">
+      <div class="span4">
+      </div>
+      <div class="span4">
+        <div id="form_container">
+        <h3>LIBNET</h3>
+        <%= form_for(:session, url: sessions_path) do |f| %>
+          <div class="control-group">
+            <%= f.label :email, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_field :email, :class => "input-xlarge", :required => true, :placeholder => "micuentacorreo@correo.com" %>
+            </div>
+          </div>
+          <div class="control-group">
+            <%= f.label :Contraseña, :class => "control-label" %>
+            <div class="controls">
+              <%= f.password_field :password, :required => true, :class => "input-xlarge" %>           
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <%= f.submit "Ingresar", class: "btn btn-large btn-primary" %>
+            </div>
+          </div> 
+        <% end %>
+        <p><span class="glyphicon glyphicon-lock"></span> <a href="">Ingrese como invitado</a> (s&oacute;lo podr&aacute; realizar consultas)</p>
+        <p><span class="glyphicon glyphicon-question-sign"></span> <a href="">¿Has olvidado tu contrase&ntilde;a?</a><br/>
+        A&uacute;n no est&aacute;s registrado?, <a href="">registrate ahora!</a></p>
+      </div>
+      </div>
+      <div class="span4">
+      </div>
+    </div>
   </div>
-</div>
+
+  <div class="clear"></div>
