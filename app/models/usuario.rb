@@ -5,26 +5,26 @@ class Usuario < ActiveRecord::Base
      VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     
     validates :username, presence: { message: "es requerido." },
-                         length: { maximum: 20, too_long: "debe contener %{count} caracteres máximo." },
+                         length: { maximum: 20, too_long: "debe contener %{count} caracteres maximo." },
                          uniqueness: { message: "ya esta registrado." }
 
     validates :nombre, presence: { message: "es requerido." },
-                       length: { maximum: 80, too_long: "debe contener %{count} caracteres máximo." },
+                       length: { maximum: 80, too_long: "debe contener %{count} caracteres maximo." },
                        uniqueness: { message: "ya esta registrado." }
 
-    validates :identificacion, length: { maximum: 30, too_long: "debe contener %{count} caracteres máximo." }
+    validates :identificacion, length: { maximum: 30, too_long: "debe contener %{count} caracteres maximo." }
 
     #validates :direccion, length: { maximum: 255, too_long: "debe contener %{count} caracteres máximo." }
 
-    validates :telefono, numericality: { only_integer: true, message: "no es un número." },
-                         length: { maximum: 8, too_long: "debe contener %{count} caracteres máximo." }
+    validates :telefono, numericality: { only_integer: true, message: "no es un numero." },
+                         length: { maximum: 8, too_long: "debe contener %{count} caracteres maximo." }
 
-    validates :celular, numericality: { only_integer: true, message: "no es un número." },
-                         length: { maximum: 8, too_long: "debe contener %{count} caracteres máximo." }
+    validates :celular, numericality: { only_integer: true, message: "no es un numero." },
+                         length: { maximum: 8, too_long: "debe contener %{count} caracteres maximo." }
 
 
-    validates :email, format: { :with => VALID_EMAIL_REGEX , message: "el formato del email es inválido" },
-                      length: { maximum: 40, too_long: "debe contener %{count} caracteres máximo." }
+    validates :email, format: { :with => VALID_EMAIL_REGEX , message: "el formato del email es invalido" },
+                      length: { maximum: 40, too_long: "debe contener %{count} caracteres maximo." }
 
     validates :crypted_password, presence: { message: "es requerida." },
                                  length: { in: 8..12, message: "debe tener entre 8 y 12 caracteres." }
