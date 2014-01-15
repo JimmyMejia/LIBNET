@@ -2,8 +2,10 @@
 <% provide(:title, "Sign in") %>
 
 <!-- Validates error messages -->
-<% if flash[:status] == FALSE %>
-    <p><%= flash[:alert] %></p>
+<% if flash[:alert] %>
+    <div id="error_explanation">
+      <p><%= flash[:alert] %></p>
+    </div>
 <% end %>
 
 <div class="row-fluid">

@@ -26,8 +26,8 @@ class Usuario < ActiveRecord::Base
     validates :email, format: { :with => VALID_EMAIL_REGEX , message: "el formato del email es invalido" },
                       length: { maximum: 40, too_long: "debe contener %{count} caracteres maximo." }
 
-    validates :crypted_password, presence: { message: "es requerida." },
-                                 length: { in: 8..12, message: "debe tener entre 8 y 12 caracteres." }
+    #validates :crypted_password, presence: { message: "es requerida." },
+                                 #length: { in: 8..12, message: "debe tener entre 8 y 12 caracteres." }
 
     # Antes que guardemos el registro encriptamos el password
     before_save :encrypt_password
