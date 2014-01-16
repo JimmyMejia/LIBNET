@@ -1,3 +1,38 @@
 // Place all the styles related to the Usuarios controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+header {
+	color: white;
+	position: top;
+}
+
+footer {
+	color: red;
+	text-align: center;
+	background-color: grey;
+	padding-top: 0.5%;
+	/*padding-left: 10%;*/
+	padding-bottom: 0.5%;
+	/*padding-right: 10%;*/
+}
+
+#form_container {
+	position:relative; 
+	background: blue; 
+	width: 100%; 
+	height: 100%; 
+	padding-top:2%; 
+	padding-left: 10%; 
+	padding-bottom: 5%;
+	
+}
+
+p#user {
+	/*position: relative;*/
+	text-align: center;
+}
+
+p#session {
+	/*position: relative;*/
+	text-align: center;
+}

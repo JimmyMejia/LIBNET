@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Usuarios</title>
+	<%= stylesheet_link_tag "application", media: "all" %>
+	<%= javascript_include_tag "application" %>
+</head>
+
+	<div id="form_container">
+		<header>
+			<p>Libnet</p>
+			<p>Biblioteca Jose Coronel Urtecho</p>
+			<p>Universidad Centroamericana</p>
+			<p id="user">JimmyMejia</p>
+			<p id="session">Cerrar sesion</p>
+		</header>
+	</div>
+
+<body>
+	<div class="container">
+		<%= yield %>
+	</div>
+</body>
+<footer>
+	<p>&#169 Derechos reservados <%= Time.now.year %></p>
+</footer>
+
+</html>
