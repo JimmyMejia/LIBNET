@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p><strong>Biblioteca:</strong>
+	<%= %>
+</p>
+
+<p><strong>Nombre:</strong>
+	<%= @nuevo_asistente.nombre %>
+</p>
+
+<p><strong>Dirección:</strong>
+	<%= @nuevo_asistente.direccion %>
+</p>
+
+<p><strong>Teléfono:</strong>
+	<%= @nuevo_asistente.telefono%>
+</p>
+
+<p><strong>Celular:</strong>
+	<%= @nuevo_asistente.celular %>
+</p>
+
+<p><strong>Email:</strong>
+	<%= @nuevo_asistente.email %>
+</p>
+
+<p><strong>Cantidad de préstamos:</strong>
+	<%= @nuevo_asistente.cantidaddeprestamos %>
+</p>
+
+<p><strong>Cantidad de devoluciones:</strong>
+	<%= @nuevo_asistente.cantidaddedevolucion %>
+</p>
+
+<%= link_to 'Editar', edit_asistente_path(@nuevo_asistente) %>
+<%= link_to 'Atras', asistentes_path %>

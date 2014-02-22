@@ -1,5 +1,6 @@
 LIBNET::Application.routes.draw do
 
+  get "asistentes/index"
   get "tipomateriales/index"
   get "tipousuarios/index"
   get "tipoprestamos/index"
@@ -17,6 +18,7 @@ LIBNET::Application.routes.draw do
   resources :tipoprestamos
   resources :tipousuarios
   resources :tipomateriales #, singular: :tipomaterials
+  resources :asistentes
 
 
   #post '/paises/nuevopais' :to => 'paises#new'
@@ -53,6 +55,11 @@ LIBNET::Application.routes.draw do
   get 'tipomateriales' => "tipomateriales#index"
   get 'nuevotipomaterial' => "tipomateriales#new"
   get 'vertipomateriales' => "tipomateriales#show"
+
+  #
+  get 'asistentes' => "asistentes#index"
+  get 'nuevoasistente' => "asistentes#new"
+  get 'verasistentes' => "asistentes#show"
 
    
   #post "usuario_session/login" => "usuario_session#new" #, as: :login
