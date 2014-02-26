@@ -1,4 +1,5 @@
 class Biblioteca < ActiveRecord::Base
+	has_many :asistente
 	validates :nombre, presence: { message: "es requerido."},
 					   length: { maximum: 50, too_long: "debe contener un maximo de %{count} carateres." },
 					   uniqueness: { message: "ya esta registrada."}

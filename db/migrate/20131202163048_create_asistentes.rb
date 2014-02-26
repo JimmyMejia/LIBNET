@@ -1,7 +1,7 @@
 class CreateAsistentes < ActiveRecord::Migration
   def change
     create_table :asistentes do |t|
-      #t.integer idbiblioteca
+      t.integer :biblioteca_id
       t.string :nombre, :limit => 80
       t.text :direccion
       t.string :telefono, :limit => 8

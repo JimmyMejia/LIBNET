@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p><strong>Biblioteca:</strong>
-	<%= %>
+	<%= @nuevo_asistente.biblioteca_id%> - <%= @relacion_biblioteca.nombre %>
 </p>
 
 <p><strong>Nombre:</strong>
@@ -25,11 +25,26 @@
 </p>
 
 <p><strong>Cantidad de préstamos:</strong>
+	<% if (@nuevo_asistente.cantidaddeprestamos.nil?) %>
+	<%= @nuevo_asistente.cantidaddeprestamos = 0 %>
+	<% else %>
 	<%= @nuevo_asistente.cantidaddeprestamos %>
+	<% end %>
 </p>
 
 <p><strong>Cantidad de devoluciones:</strong>
+	<% if(@nuevo_asistente.cantidaddedevolucion.nil?) %>
+	<%= @nuevo_asistente.cantidaddedevolucion = 0 %>
+	<% else %>
 	<%= @nuevo_asistente.cantidaddedevolucion %>
+	<% end %>
+</p>
+<p><strong>Estado:</strong>
+	<% if(@nuevo_asistente.estado) == 1 %>
+	<%= @nuevo_asistente.estado = "Activo" %>
+	<% else %>
+	<%= @nuevo_asistente.estado = "Inactivo" %>
+	<% end %>
 </p>
 
 <%= link_to 'Editar', edit_asistente_path(@nuevo_asistente) %>

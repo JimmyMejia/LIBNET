@@ -1,7 +1,7 @@
 class BibliotecasController < ApplicationController
   before_action :set_biblioteca, only: [:show, :edit, :update, :destroy]
   def index
-  	@bibliotecas = Biblioteca.all
+  	@bibliotecas = Biblioteca.all.order("id ASC")
   end
 
   def new

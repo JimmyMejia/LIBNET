@@ -17,7 +17,11 @@
 </p>
 
 <p><strong>Estado:</strong>
-	<%= @nueva_biblioteca.estado %>
+	<% if(@nueva_biblioteca.estado) == 1 %>
+	<%= @nueva_biblioteca.estado = "Activo" %>
+	<% else %>
+	<%= @nueva_biblioteca.estado = "Inactivo" %>
+	<% end %>
 </p>
 
 <p><strong>Logo</strong>

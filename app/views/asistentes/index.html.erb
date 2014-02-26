@@ -17,14 +17,18 @@
 	<% @asistentes.each do |a| %>
 	<tr>
 		<td><%= a.id %></td>
-		<!--<td><--%= a.biblioteca_id %></td>-->
-		<td>FALTA DATO</td>
+		<td><%= a.biblioteca_id %></td>
+		<!--<td>FALTA DATO</td>-->
 		<td><%= a.nombre %></td>
 		<td><%= a.direccion %></td>
 		<td><%= a.telefono %></td>
 		<td><%= a.celular %></td>
 		<td><%= a.email %></td>
-		<td><%= a.estado %></td>
+		<% if (a.estado == 1) %>
+		<td><%= a.estado = "Activo" %></td>
+		<% else %>
+		<td><%= a.estado = "Inactivo" %></td>
+		<% end %>
 		<td><%= link_to 'Ver', a %></td>
 		<td><%= link_to 'Editar', edit_asistente_path(a) %></td>
 		<td><%= link_to 'Eliminar', a, method: :delete, data: { confirm: 'Esta seguro?' }%></td>

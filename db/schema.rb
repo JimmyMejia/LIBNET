@@ -13,10 +13,8 @@
 
 ActiveRecord::Schema.define(version: 20131204171705) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "asistentes", force: true do |t|
+    t.integer  "biblioteca_id"
     t.string   "nombre",               limit: 80
     t.text     "direccion"
     t.string   "telefono",             limit: 8

@@ -1,5 +1,6 @@
 class Asistente < ActiveRecord::Base
-	#validates :biblioteca_id, presence: { message: "es requerido." }
+	belongs_to :bibliotecas
+	validates :biblioteca_id, presence: { message: "es requerido." }
 	validates :nombre, presence: { message: "es requerido."},
 					   length: { maximum: 80, too_long: "debe contener un maximo de %{count} caracteres." },
 					   uniqueness: { message: "ya esta registrado." }

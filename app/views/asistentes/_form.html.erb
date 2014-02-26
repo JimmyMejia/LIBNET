@@ -14,11 +14,13 @@
 
 <div class="field">
 	<%= f.label :biblioteca_id %>
-	<select name="biblioteca_id" id="biblioteca_id" >
-		<% Biblioteca.find(:all).each do |a| %>
-			<option value="<%=a.id%>"><%= a.nombre %></option>
-		<% end %>		
-		</select>
+	<!--<select name="biblioteca_id" id="biblioteca_id" >
+		<--% Biblioteca.find(:all).each do |a| %>
+			<option value="<--%=a.id%>"><--%= a.nombre %></option>
+		<--% end %>		
+	</select>-->
+
+	<%= f.select(:biblioteca_id, Biblioteca.where("estado = 1").order("id ASC").collect {|u| [u.nombre, u.id]}) %> <!--find(:all)-->
 </div>
 
 <div class="field">
@@ -45,6 +47,11 @@
 	<%= f.label :email %>
 	<%= f.text_field :email, {size: "35", maxlength: "40"} %>
 </div>
+
+<!--<div class="field">
+	<--%= f.label :estado %>
+	<--%= select_tag(:option, options_for_select([['Activo', 1], ['Inactivo', 0]], selected: :option )) %>
+</div>-->
 
 <div class="actions">
 	<%= f.submit 'Guardar' %>

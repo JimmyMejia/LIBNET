@@ -20,7 +20,11 @@
 		<td><%= b.direccion %></td>
 		<td><%= b.telefono %></td>
 		<td><%= b.email %></td>
-		<td><%= b.estado %></td>
+		<% if (b.estado == 1) %>
+		<td><%= b.estado = "Activo" %></td>
+		<% else %>
+		<td><%=b.estado = "Inactivo" %></td>
+		<% end %>
 		<td><%= b.logo %></td>
 		<td><%= link_to 'Ver',b %></td>
 		<td><%= link_to 'Editar', edit_biblioteca_path(b) %></td>

@@ -1,8 +1,14 @@
 class AsistentesController < ApplicationController
-	before_action :set_asistente, only: [:show, :edit, :update, :destroy]
+	before_action :set_asistente, :asistentes_bibliotecas, only: [:show, :edit, :update, :destroy]
   
   def index
   	@asistentes = Asistente.all
+    @bibliotecas = Biblioteca.all
+    #@biblioteca_name = Biblioteca.find(2) #where(:id => '1')
+    #@biblioteca_name = Biblioteca.where("id = ?", params_asistente[:biblioteca_id])
+    #@biblioteca_name = Biblioteca.find_by_sql(SELECT nombre FROM id = params_asistente[:biblioteca_id])
+    #Biblioteca.joins(:asistente).where(Biblioteca: {nombre: nombre})
+    #@biblioteca_name = Biblioteca.all(:select => "nombre", :conditions => ["biblioteca_id", params_asistente[:biblioteca_id]])
   end
 
   def new
@@ -44,11 +50,18 @@ class AsistentesController < ApplicationController
 
 
   def params_asistente #:biblioteca_id,
-  	params.require(:asistente).permit(:nombre, :direccion, :telefono, :celular, :email)
+  	params.require(:asistente).permit(:biblioteca_id, :nombre, :direccion, :telefono, :celular, :email)
   end
 
   private
   def set_asistente
   	@nuevo_asistente = Asistente.find(params[:id])
   end
+
+  private 
+  def asistentes_bibliotecas
+      @idbiblioteca = @nuevo_asistente.biblioteca_id
+      @relacion_biblioteca = Biblioteca.find(@idbiblioteca)
+  end
+
 end
