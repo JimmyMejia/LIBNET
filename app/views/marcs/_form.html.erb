@@ -1,0 +1,38 @@
+<%= form_for @nuevo_marc do |f| %>
+
+<% if @nuevo_marc.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@nuevo_marc.errors.count, "error") %> antes de guardar:</h2>
+		<ul>
+			<%@nuevo_marc.errors.full_messages.each do |message| %>
+			<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+<div class="field">
+	<%= f.label :codigomarc %>
+	<%= f.text_field :codigomarc, { size: "20", maxlength: "25" } %>
+</div>
+
+<div class="field">
+	<%= f.label :titulo %>
+	<%= f.text_area :titulo, { size: "20", maxlength: "255", row: "5" } %>
+</div>
+
+<div class="field">
+	<%= f.label :descripción %>
+	<%= f.text_area :descripcion, { size: "20", row: "5" } %> 
+</div>
+
+<div class="field">
+	<%= f.label :identificador %>
+	<%= f.text_field :identificador, { size: "30", maxlength: "50" } %>
+</div>
+
+<div class="actions">
+	<%= f.submit 'Guardar'%>
+</div>
+
+<% end %>

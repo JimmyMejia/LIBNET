@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p><strong>Codigo Marc:</strong>
+	<%= @nuevo_marc.codigomarc %>
+</p>
+
+<p><strong>Titulo:</strong>
+	<%= @nuevo_marc.titulo %>
+</p>
+
+<p><strong>Descripción:</strong>
+	<%= @nuevo_marc.descripcion %>
+</p>
+
+<p><strong>Identificador:</strong>
+	<%= @nuevo_marc.identificador %>
+</p>
+
+<%= link_to 'Editar', edit_marc_path(@nuevo_marc) %>
+<%= link_to 'Atras', marcs_path %>

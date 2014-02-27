@@ -1,5 +1,7 @@
 LIBNET::Application.routes.draw do
 
+  get "marcs/index"
+  #get "marc/index"
   get "asistentes/index"
   get "tipomateriales/index"
   get "tipousuarios/index"
@@ -19,6 +21,7 @@ LIBNET::Application.routes.draw do
   resources :tipousuarios
   resources :tipomateriales #, singular: :tipomaterials
   resources :asistentes
+  resources :marcs
 
 
   #post '/paises/nuevopais' :to => 'paises#new'
@@ -56,12 +59,17 @@ LIBNET::Application.routes.draw do
   get 'nuevotipomaterial' => "tipomateriales#new"
   get 'vertipomateriales' => "tipomateriales#show"
 
-  #
+  # CRUD LISTO
   get 'asistentes' => "asistentes#index"
   get 'nuevoasistente' => "asistentes#new"
   get 'verasistentes' => "asistentes#show"
 
-   
+  # CRUD LISTO
+  get 'marcs' => "marcs#index"
+  get 'nuevomarc' => "marcs#new"
+  get 'vermarcs' => "marcs#show"
+
+
   #post "usuario_session/login" => "usuario_session#new" #, as: :login
   #post "usuario/logout" => "usuario_session#destroy" #, as: :logout
 
