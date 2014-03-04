@@ -1,0 +1,68 @@
+<%= form_for(@nuevo_marcxmaterial) do |f| %>
+
+<% if @nuevo_marcxmaterial.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@nuevo_marcxmaterial.errors.count, "error")%> antes de guardar: </h2>
+		<ul>
+			<%@nuevo_marcxmaterial.errors.full_message.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+	<div class="row">
+		<div class="col-xs-12" id="tipomaterial">
+			<%= f.label :tipo_material_id %>
+			<%= f.select(:tipomaterial_id, Tipomaterial.all.order("descripcion ASC").collect {|tm| [tm.descripcion, tm.id]}) %>
+		</div>
+	</div>
+
+<div class="row">
+	<div class="col-xs-5" id="marcasignado">
+		<%= f.label :marc_asignados %> 
+		<%= f.select(:marc_id, Marc.where('id IN (SELECT marc_id FROM marcxmaterials)').collect {|m| [m.codigomarc, m.id]}, {}, { multiple: true, row: 20, style: 'width: 150px' }) %>
+	</div>
+	<!--SELECT "marcs".* 
+	 FROM "marcs" 
+	 WHERE marcs.id IN (SELECT marc_id FROM marcxmaterials)-->
+	 <div class="col-xs-2">
+		<div class="actions">
+		  	<%= f.submit '>', id: "addone", class: "addone" %>
+		 </div>
+		 <div class="actions">
+		  	<%= f.submit '<', id: "delone", class: "delone"%>
+		 </div>
+		 <div class="actions">
+		  	<%= f.submit '>>', id: "addall", class: "addall" %>
+		 </div>
+		 <div class="actions">
+		  	<%= f.submit '<<', id: "delall", class: "delall" %>
+		 </div>		 
+	 </div>
+
+	 <div class="hidden">
+	 	<%= link_to "Articles", marcxmaterial_path, id: "addone", class: "addone" %>
+	 </div>
+
+
+<!--<div class="field">
+	<--%= f.label :marc_sin_asignar %> <br>
+	<--%= f.select(:marc_id, Marc.all.order("descripcion ASC").collect {|m| [m.descripcion, m.id]}, {}, { multiple: true, row: 10 }) %>
+</div>-->
+
+	<div class="col-xs-5" id="marcsinasignar">
+		<%= f.label :marc_sin_asignar %> 
+		<%= f.select(:marc_id, Marc.where('id NOT IN (SELECT marc_id FROM marcxmaterials)').collect {|m| [m.codigomarc, m.id]}, {}, { multiple: true, row: 20 }) %>
+	</div>
+</div>
+<!--SELECT m.id 
+  FROM marcs m 
+  WHERE m.id NOT IN (SELECT marc_id FROM marcxmaterials) ;-->
+  
+
+<div class="actions">
+	<%= f.submit 'Guardar'%>
+</div>
+
+<% end %>

@@ -136,6 +136,8 @@ ActiveRecord::Schema.define(version: 20131204171705) do
   end
 
   create_table "marcxmaterials", force: true do |t|
+    t.integer  "tipomaterial_id"
+    t.integer  "marc_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
