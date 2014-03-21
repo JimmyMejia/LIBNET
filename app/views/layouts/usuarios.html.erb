@@ -6,16 +6,23 @@
 	<%= stylesheet_link_tag "application", media: "all" %>
 	<%= javascript_include_tag "application" %>
 </head>
-
-	<div id="form_container">
-		<header>
-			<p>Libnet</p>
-			<p>Biblioteca Jose Coronel Urtecho</p>
-			<p>Universidad Centroamericana</p>
-			<p id="user">JimmyMejia</p>
-			<p id="session">Cerrar sesion</p>
-		</header>
-	</div>
+	
+<header>
+	
+		<div class="row">
+			<div class="col-xs-8">
+				<p>Libnet</p>
+				<p>Biblioteca Jose Coronel Urtecho</p>
+				<p>Universidad Centroamericana</p>
+			</div>
+				
+			<div class="col-xs-4">
+				<p>JimmyMejia</p>
+				<p>Cerrar sesion</p>
+			</div>
+		</div>
+	
+</header>
 
 <body>
 	<div class="container">
@@ -23,7 +30,9 @@
 	</div>
 </body>
 <footer>
+	<div id="footer">
 	<p>&#169 Derechos reservados <%= Time.now.year %></p>
+	</div>
 </footer>
 
 </html>

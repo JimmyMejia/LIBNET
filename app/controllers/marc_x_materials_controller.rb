@@ -3,14 +3,15 @@ class MarcXMaterialsController < ApplicationController
 
   def index
   	@marcxmateriales = Marcxmaterial.all
-    @marc_asignados = Marcxmaterial.joins('LEFT JOIN marcs m ON m.id = marcxmaterials.marc_id WHERE m.id IN (SELECT marc_id FROM marcs)')
-    /select * 
-  from marcxmaterials left join marcs m
-  on m.id = marcxmaterials.marc_id
-  where m.id in (select id from marcxmaterials);/
+    @descripcion_marc = Marc.where('id = ?', @nuevo_marcxmaterial)
   end
 
   def new
+    # VARIABLES USADAS PARA CARGAR LOS LISTBOX(SELECT DEL _FORM.HTML.ERB)
+    @tipo_material = Tipomaterial.order("descripcion ASC")
+    @marc_asignados = Marc.where('id IN (SELECT marc_id FROM marcxmaterials)')
+    @marc_sin_asignar = Marc.where('id NOT IN (SELECT marc_id FROM marcxmaterials)')
+    
   	@nuevo_marcxmaterial = Marcxmaterial.new
   end
 

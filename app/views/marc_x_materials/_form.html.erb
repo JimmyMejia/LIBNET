@@ -11,21 +11,30 @@
 	</div>
 <% end %>
 
-	<div class="row">
-		<div class="col-xs-12" id="tipomaterial">
+<div class="row">
+		<div class="col-xs-12" id="tipomaterial" onchange="verTipoMaterial();">
 			<%= f.label :tipo_material_id %>
-			<%= f.select(:tipomaterial_id, Tipomaterial.all.order("descripcion ASC").collect {|tm| [tm.descripcion, tm.id]}) %>
+			<!--<--%= f.select(:tipomaterial_id, Tipomaterial.order("descripcion ASC").collect {|tm| [tm.descripcion, tm.id]}) %>-->
+			<select name="tipomaterial" id="tipomaterial" >
+				<% @tipo_material.each do |a| %>
+					<option value="<%= a.id %>"><%= a.descripcion %></option>
+				<% end %>		
+			</select>
 		</div>
-	</div>
+</div>
 
 <div class="row">
-	<div class="col-xs-5" id="marcasignado">
-		<%= f.label :marc_asignados %> 
-		<%= f.select(:marc_id, Marc.where('id IN (SELECT marc_id FROM marcxmaterials)').collect {|m| [m.codigomarc, m.id]}, {}, { multiple: true, row: 20, style: 'width: 150px' }) %>
+	<div class="col-xs-5" id="marcsinasignar">
+		<%= f.label :marc_sin_asignar %> <br>
+		<!--<--%= f.select(:marc_id, Marc.where('id NOT IN (SELECT marc_id FROM marcxmaterials)').collect {|m| [m.codigomarc, m.id]}, {}, { multiple: true, row: 20, style: 'width: 200px' }) %> -->
+		<select name="marc_sin_asignar" id="marc_sin_asignar" multiple="true" row="10" style="width: 200px" >
+				<% @marc_sin_asignar.each do |a| %>
+					<option value="<%= a.id %>"><%= a.codigomarc %></option>
+				<% end %>		
+		</select>
 	</div>
-	<!--SELECT "marcs".* 
-	 FROM "marcs" 
-	 WHERE marcs.id IN (SELECT marc_id FROM marcxmaterials)-->
+
+	
 	 <div class="col-xs-2">
 		<div class="actions">
 		  	<%= f.submit '>', id: "addone", class: "addone" %>
@@ -44,25 +53,131 @@
 	 <div class="hidden">
 	 	<%= link_to "Articles", marcxmaterial_path, id: "addone", class: "addone" %>
 	 </div>
-
-
-<!--<div class="field">
-	<--%= f.label :marc_sin_asignar %> <br>
-	<--%= f.select(:marc_id, Marc.all.order("descripcion ASC").collect {|m| [m.descripcion, m.id]}, {}, { multiple: true, row: 10 }) %>
-</div>-->
-
-	<div class="col-xs-5" id="marcsinasignar">
-		<%= f.label :marc_sin_asignar %> 
-		<%= f.select(:marc_id, Marc.where('id NOT IN (SELECT marc_id FROM marcxmaterials)').collect {|m| [m.codigomarc, m.id]}, {}, { multiple: true, row: 20 }) %>
+	
+	<div class="col-xs-5" id="marcasignado">
+		<%= f.label :marc_asignados %> <br>
+		<!--<--%= f.select(:marc_id, Marc.where('id IN (SELECT marc_id FROM marcxmaterials)').collect {|m| [m.codigomarc, m.id]}, {}, { multiple: true, row: 20, style: 'width: 200px' }) %>-->
+		<select name="marc_asignados" id="marc_asignados" multiple="true" row="10" style="width: 200px" >
+				<% @marc_asignados.each do |a| %>
+					<option value="<%= a.id %>"><%= a.codigomarc %></option>
+				<% end %>		
+		</select>
 	</div>
+
 </div>
-<!--SELECT m.id 
-  FROM marcs m 
-  WHERE m.id NOT IN (SELECT marc_id FROM marcxmaterials) ;-->
-  
 
 <div class="actions">
 	<%= f.submit 'Guardar'%>
 </div>
 
+<!--####################################################################-->
+<p id="message">
+	
+</p>
+
 <% end %>
+
+<script type="text/javascript">
+  function verTipoMaterial()
+  {
+      var d = document.getElementById('tipomaterial').value;
+	  alert (d);
+
+  }
+
+  /*function authenticate() {
+    $.ajax({
+        type: "GET",
+        url: "authenticate",
+        data: {
+            Username: $('#Username').val(),
+            Password: $('#Password').val()
+        },
+        success: function (msg) {
+            if (msg == '0') {
+                document.getElementById('message').style.display = 'block';
+                $('#message').html('<i class="fa fa-exclamation-triangle"></i> Wrong Username or Password');
+            } else {
+                var data = JSON.parse(msg);
+                window.location.href = data[0].LastURL;
+            }
+        },
+        failure: function (msg) {
+            alert('User not found');
+        }
+    });
+}*/
+
+/*function verTipoMaterial() {
+    $.ajax({
+        type: "GET",
+        url: "nuevomarc_x_material",
+        data: {
+            TipoMaterial: $('#tipomaterial').val()
+        },
+        success: function (msg) {
+            if (msg == '0') {
+               alert ("No existe tipo de material!!!");
+            } else {
+                var data = JSON.parse(msg);
+                window.location.href = data[0].LastURL;
+            }
+        },
+        failure: function (msg) {
+            alert('Tipo Material no encontrado');
+        }
+    });
+}*/
+
+
+/*public function post_authenticate(){
+        $Username = Input::get('Username');
+        $Password = Input::get('Password');
+
+        $URLSession = Session::get('URLSession');
+        
+        if (!empty($URLSession)) {
+            $LastURL = $URLSession->uri;
+        } else {
+            $LastURL = '';
+        }
+
+        $data = array();
+        
+        #search database
+        $user = DB::table('UsersTable')
+                    ->where('Username', '=', $Username)
+                    ->where('Password', '=', $Password)
+                    ->first();
+        
+        if (!empty($user)) {
+            $data[] = array('FirstName' => $user->FirstName,
+                             'LastURL' => $LastURL); 
+
+            $UserSessionInfo = new stdClass();
+            $UserSessionInfo->Username = $user->Username;
+            $UserSessionInfo->Name = $user->FirstName; 
+            Session::put('UserSessionInfo', $UserSessionInfo);
+                        
+            return json_encode($data);
+        } else { 
+            return '0';
+        }
+    }*/
+
+
+
+  /*$('#tipomaterial').change(function(){
+    var selectedOption = $(this).find('option:selected');
+    var selectedLabel = selectedOption.text();
+    var selectedValue = selectedOption.val();
+    $('#iSelected').text(selectedValue + ' - ' + selectedLabel);
+});*/
+
+
+ /*function verTipoMaterial() {
+      var singleValues = $("#tipomaterial").val();
+      document.write('valor de single:'+singleValues);
+    }*/
+
+</script>

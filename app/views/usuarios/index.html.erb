@@ -1,45 +1,51 @@
-<h1>Listing usuarios</h1>
+<div class="container">
+  <p>
+    <h1>Lista de Usuarios</h1>
+  </p>
 
-<table border="1">
-  <thead>
-    <tr>
-      <th>Tipousuario</th>
-      <th>Identificación</th>
-      <th>Nombre</th>
-      <th>Dirección</th>
-      <th>Teléfono</th>
-      <th>Celular</th>
-      <th>Fecha registro</th>
-      <th>Username</th>
-      <th>Email</th>
-      <th>Estado</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @usuarios.each do |usuario| %>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= usuario.tipousuario %></td>
-        <td><%= usuario.identificacion %></td>
-        <td><%= usuario.nombre %></td>
-        <td><%= usuario.direccion %></td>
-        <td><%= usuario.telefono %></td>
-        <td><%= usuario.celular %></td>
-        <td><%= usuario.fecharegistro %></td>
-        <td><%= usuario.username %></td>
-        <td><%= usuario.email %></td>
-        <td><%= usuario.estado %></td>
-        <td><%= link_to 'Ver', usuario %></td>
-        <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
-        <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+        <th>Tipousuario</th>
+        <th>Identificación</th>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Celular</th>
+        <th>Fecha registro</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Estado</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @usuarios.each do |usuario| %>
+        <tr>
+          <td><%= usuario.tipousuario %></td>
+          <td><%= usuario.identificacion %></td>
+          <td><%= usuario.nombre %></td>
+          <td><%= usuario.direccion %></td>
+          <td><%= usuario.telefono %></td>
+          <td><%= usuario.celular %></td>
+          <td><%= usuario.fecharegistro %></td>
+          <td><%= usuario.username %></td>
+          <td><%= usuario.email %></td>
+          <td><%= usuario.estado %></td>
+          <td><%= link_to 'Ver', usuario %></td>
+          <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
+          <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+  <br>
 
-<%= link_to 'Nuevo Usuario', new_usuario_path %>
+  <%= link_to 'Nuevo Usuario', new_usuario_path, class: "btn-link" %>
+
+</div>
