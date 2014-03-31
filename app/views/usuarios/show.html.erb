@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<div class="alert alert-success">
+  <p><%= notice %></p>
+</div>
 
 <p>
   <strong>Tipousuario:</strong>
@@ -50,5 +52,5 @@
   <%= @usuario.estado %>
 </p>
 
-<%= link_to 'Editar', edit_usuario_path(@usuario) %> |
-<%= link_to 'Atras', usuarios_path %>
+<%= link_to 'Editar', edit_usuario_path(@usuario), class: "btn btn-link" %> |
+<%= link_to 'Atras', usuarios_path, class: "btn btn-link" %>

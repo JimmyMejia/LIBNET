@@ -1,19 +1,19 @@
-<div class="container">
+<div class="container_table">
   <p>
     <h1>Lista de Usuarios</h1>
   </p>
 
 <div class="table-responsive">
-  <table class="table">
+  <table class="table table-striped">
     <thead>
       <tr>
-        <th>Tipousuario</th>
+        <th>Tipo_usuario</th>
         <th>Identificación</th>
         <th>Nombre</th>
         <th>Dirección</th>
         <th>Teléfono</th>
         <th>Celular</th>
-        <th>Fecha registro</th>
+        <th>Fecha_registro</th>
         <th>Username</th>
         <th>Email</th>
         <th>Estado</th>
@@ -36,16 +36,15 @@
           <td><%= usuario.username %></td>
           <td><%= usuario.email %></td>
           <td><%= usuario.estado %></td>
-          <td><%= link_to 'Ver', usuario %></td>
-          <td><%= link_to 'Editar', edit_usuario_path(usuario) %></td>
-          <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+          <td><%= link_to 'Ver', usuario, class: "btn btn-link" %></td>
+          <td><%= link_to 'Editar', edit_usuario_path(usuario), class: "btn btn-link" %></td>
+          <td><%= link_to 'Eliminar', usuario, method: :delete, data: { confirm: 'Esta seguro?' } ,class: "btn btn-link" %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
-  <br>
-
-  <%= link_to 'Nuevo Usuario', new_usuario_path, class: "btn-link" %>
+ 
+  <%= link_to 'Nuevo Usuario', new_usuario_path, class: "btn btn-link" %>
 
 </div>

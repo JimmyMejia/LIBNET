@@ -1,6 +1,7 @@
 <%= form_for(@usuario) do |f| %>
   <% if @usuario.errors.any? %>
-    <div id="error_explanation">
+    <!-- <div id="error_explanation"> -->
+    <div class="alert alert-danger">
       <h2><%= pluralize(@usuario.errors.count, "error") %> antes de guardar:</h2>
 
       <ul>
@@ -11,43 +12,74 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username, { size: 20, maxlength: 20} %>
+  <div class="control-group">
+    <%= f.label :username, class: "control-label" %><br>
+    <div class="controls">
+      <%= f.text_field :username, class: "input-xlarge", required: true, placeholder: "Usuario" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :nombre %><br>
-    <%= f.text_field :nombre, {:size => "20", :maxlength => "80", placeholder: "Jimmy Mejia"} %>
+
+  <div class="control-group"> 
+    <%= f.label :nombre, class: "control-label" %><br>
+    <div class="controls">    
+      <%= f.text_field :nombre, class: "input-xlarge", required: true, placeholder: "Jimmy Mejia" %>
+    </div>
+  </div> 
+
+  <div class="control-group">
+    <%= f.label :identificación, class: "control-label" %><br>
+    <div class="controls">
+      <%= f.text_field :identificacion, class: "input-xlarge", required: true, placeholder: "Num identificacion" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :identificación %><br>
-    <%= f.text_field :identificacion, {:size => "25", :maxlength => "30"} %>
+
+  <!-- <div class="field"> </div>-->
+  <div class="control-group"> 
+    <%= f.label :dirección, class: "control-label" %><br>
+    <div class="controls">
+      <%= f.text_area :direccion, class: "input-xlarge", placeholder: "Dirección" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :dirección %><br>
-    <%= f.text_area :direccion %>
+
+  <div class="control-group"> 
+    <%= f.label :teléfono, class: "control-label" %><br>
+    <div class="controls">
+      <%= f.phone_field :telefono, class: "input-xlarge",placeholder: "Teléfono convencional" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :teléfono %><br>
-    <%= f.phone_field :telefono, {:size=>"10", :maxlength=>"8"} %>
+
+  <div class="control-group"> 
+    <%= f.label :celular, class: "control-label" %><br>
+    <div class="controls">
+      <%= f.phone_field :celular, class: "input-xlarge", placeholder: "Teléfono celular" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :celular %><br>
-    <%= f.phone_field :celular, {:size=>"10", :maxlength=>"8"} %>
+
+  <div class="control-group"> 
+    <%= f.label :email, class: "control-label" %><br>
+    <div class="controls">
+      <%= f.text_field :email, class: "input-xlarge", placeholder: "correo@servidordecorreo", required: true %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+
+  <div class="control-group"> 
+    <%= f.label :password, class: "control-label" %><br>
+    <div class="controls">
+      <%= f.password_field :password, class: "input-xlarge", placeholder: "Mi contrasenia", required: true %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
+
+  <div class="control-group"> 
+    <%= f.label :password_confirmation, class: "control-label" %><br>
+    <div class="controls">    
+      <%= f.password_field :password_confirmation, class: "input-xlarge", placeholder: "Repita la contrasenia", required: true %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
+
+  <div class="control-group">
+    <div class="control">
+      <%= f.submit 'Guardar', class: "btn btn-large btn-primary" %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit 'Guardar' %>
-  </div>
+
 <% end %>

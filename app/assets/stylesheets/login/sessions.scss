@@ -5,8 +5,9 @@ body{
 	color:#393939;
 }
 
-#form_container{position:relative; 
-	background: #fff; 
+#form_container{
+	position:relative; 
+	background: #c8cfc8; 
 	width: 100%; 
 	height: 100%; 
 	padding-top:2%; 
@@ -18,4 +19,7 @@ body{
     -webkit-border-radius: 15px 15px 15px 15px;
     /* IE */
     behavior: url(border.htc);
+}
+h3{
+	margin-left: 40%;
 }
