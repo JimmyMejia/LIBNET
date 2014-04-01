@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<div class="alert alert-success">
+	<p><%= notice %></p>
+</div>
 
 <p><strong>Biblioteca:</strong>
 	<%= @nuevo_asistente.biblioteca_id%> - <%= @relacion_biblioteca.nombre %>
@@ -47,5 +49,5 @@
 	<% end %>
 </p>
 
-<%= link_to 'Editar', edit_asistente_path(@nuevo_asistente) %>
-<%= link_to 'Atras', asistentes_path %>
+<%= link_to 'Editar', edit_asistente_path(@nuevo_asistente), class: "btn btn-link" %> |
+<%= link_to 'Atras', asistentes_path, class: "btn btn-link" %>

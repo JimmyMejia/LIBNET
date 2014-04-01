@@ -12,6 +12,9 @@ class AsistentesController < ApplicationController
   end
 
   def new
+    # VARIABLE USADA PARA CARGAR EL LISTBOX(SELECT DEL _FORM.HTML.ERB)
+    @bibliotecas = Biblioteca.where("estado = 1").order("id ASC")
+
   	@nuevo_asistente = Asistente.new
   end
 

@@ -1,7 +1,9 @@
-<p id="notice"><%== notice %></p>
+<div class="alert alert-success">
+	<p><%= notice %></p>
+</div>
 
-<p><strong>Descripcion</strong>
+<p><strong>Descripción:</strong>
 	<%= @nuevo_tipousuario.descripcion %>
 </p>
-<%= link_to 'Editar', edit_tipousuario_path(@nuevo_tipousuario) %>
-<%= link_to 'Atras', tipousuarios_path %>
+<%= link_to 'Editar', edit_tipousuario_path(@nuevo_tipousuario), class: "btn btn-link" %> |
+<%= link_to 'Atras', tipousuarios_path, class: "btn btn-link" %>

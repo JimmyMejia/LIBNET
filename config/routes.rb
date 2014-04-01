@@ -15,7 +15,7 @@ LIBNET::Application.routes.draw do
   resources :usuarios
   resources :sessions, :only => [:new, :create, :destroy]
   resources :bibliotecas
-  resources :pais #, :singular => :paises #EXISTE PROBLEMAS EN LOS RUTEOS HAY Q ESPECIFICAR EL SINGULAR PARA EL RECURSO, http://stackoverflow.com/questions/2610335/rails-scaffold-problem-undefined-method-edit-pais-path
+  resources :pais , :singular => :paises #EXISTE PROBLEMAS EN LOS RUTEOS HAY Q ESPECIFICAR EL SINGULAR PARA EL RECURSO, http://stackoverflow.com/questions/2610335/rails-scaffold-problem-undefined-method-edit-pais-path
   resources :idiomas
   resources :tipoprestamos
   resources :tipousuarios

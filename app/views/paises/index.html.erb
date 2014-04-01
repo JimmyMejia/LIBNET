@@ -1,26 +1,33 @@
-<h1>Lista de Paises</h1>
-
-<table border="1">
-	<thead>
-		<tr>
-			<th>Id Pais</th>
-			<th>Pais</th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @paises.each do |p| %>
-			<tr>
-				<td><%= p.id %></td>
-				<td><%= p.pais %></td>
-				<td><%= link_to 'Ver', p %></td>
-				<td><%= link_to 'Editar', edit_pai_path(p) %></td>			
-				<td><%= link_to 'Eliminar', p, method: :delete, action: { confirm: "Esta seguro?" } %></td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
-<br>
-<%= link_to 'Nuevo pais', nuevopais_path %>
+<div class="container_table">
+	<p>
+		<h1>Lista de Paises</h1>
+	</p>
+	<div class="alert alert-success">
+		<p><%= notice %></p>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Id Pais</th>
+					<th>Pais</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @paises.each do |p| %>
+					<tr>
+						<td><%= p.id %></td>
+						<td><%= p.pais %></td>
+						<td><%= link_to 'Ver', p, class:"btn btn-link" %></td>
+						<td><%= link_to 'Editar', edit_pai_path(p), class:"btn btn-link" %></td>			
+						<td><%= link_to 'Eliminar', p, method: :delete, action: { confirm: "Esta seguro?" }, class:"btn btn-link" %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<%= link_to 'Nuevo pais', nuevopais_path,class: "btn btn-link" %>
+</div>

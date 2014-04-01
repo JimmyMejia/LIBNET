@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<p><strong>Idioma</strong>
+<div class="alert alert-success">
+	<p><%= notice %></p>
+</div>
+<p><strong>Idioma:</strong>
 	<%= @nuevo_idioma.idioma %>
 </p>
 
-<%= link_to 'Editar', edit_idioma_path(@nuevo_idioma) %>
-<%= link_to 'Atras', idiomas_path %>
+<%= link_to 'Editar', edit_idioma_path(@nuevo_idioma), class: "btn btn-link" %> |
+<%= link_to 'Atras', idiomas_path, class: "btn btn-link" %>

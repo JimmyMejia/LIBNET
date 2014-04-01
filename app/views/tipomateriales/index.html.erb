@@ -1,28 +1,34 @@
-<h1>Tipos de Materiales</h1>
-<p id="notice"><%= notice %></p>
+<div class="container_table">
+	<p>
+		<h1>Tipos de Materiales</h1>
+	</p>
+	<div class="alert alert-success">
+		<p><%= notice %></p>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Id Tipo de Material</th>
+					<th>Tipo de Material</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @tipomateriales.each do |tm| %>
+					<tr>
+						<td><%= tm.id %></td>
+						<td><%= tm.descripcion %></td>
+						<td><%= link_to 'Ver', tipomateriales_path(tm), class: "btn btn-link" %></td>
+						<td><%= link_to 'Editar', class: "btn btn-link" %></td> <!-- , edit_tipomaterial_path(tm) -->
+						<td><%= link_to 'Eliminar', class: "btn btn-link" %></td> <!-- ,tm,method: :delete, data: { confirm: "Esta seguro?" } -->
+					</tr>
+				<% end %>			
+			</tbody>
+		</table>
+	</div>
 
-<table border="1">
-	<thead>
-		<tr>
-			<th>Id Tipo de Material</th>
-			<th>Tipo de Material</th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @tipomateriales.each do |tm| %>
-			<tr>
-				<td><%= tm.id %></td>
-				<td><%= tm.descripcion %></td>
-				<td><%= link_to 'Ver', tipomateriales_path(tm) %></td>
-				<td><%= link_to 'Editar' %></td> <!-- , edit_tipomaterial_path(tm) -->
-				<td><%= link_to 'Eliminar' %></td> <!-- ,tm,method: :delete, data: { confirm: "Esta seguro?" } -->
-			</tr>
-		<% end %>
-		
-	</tbody>
-</table>
-
-<%= link_to 'Nuevo Tipo de Material', nuevotipomaterial_path %>
+	<%= link_to 'Nuevo Tipo de Material', nuevotipomaterial_path, class: "btn btn-link" %>
+</div>

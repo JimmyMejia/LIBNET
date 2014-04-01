@@ -1,6 +1,6 @@
 <%= form_for(@nuevo_tipoprestamo) do |f| %>
 	<% if @nuevo_tipoprestamo.errors.any? %>
-		<div id="error_explanation">
+		<div id="alert alert-danger">
 			<h2><%= pluralize(@nuevo_tipoprestamo.errors.count, "error" ) %> antes de guardar:</h2>
 			<ul>
 				<% @nuevo_tipoprestamo.errors.full_messages.each do |msg| %>
@@ -10,13 +10,17 @@
 		</div>
 	<% end %>
 
-	<div class="field">
-		<%= f.label :descripcion %>
-		<%= f.text_field :descripcion, { size: 30, maxlength: 50 } %>
+	<div class="control-group">
+		<%= f.label :descripción, class: "control-label" %>
+		<div class="controls">
+			<%= f.text_field :descripcion, class: "input-xlarge", required: true, placeholder: "Tipo de préstamo" %>
+		</div>
 	</div>
 
-	<div class="actions">
-		<%= f.submit 'Guardar' %>
+	<div class="control-group">
+		<div class="controls">
+			<%= f.submit 'Guardar', class: "btn btn-large btn-primary" %>
+		</div>
 	</div>
 
 <% end %>

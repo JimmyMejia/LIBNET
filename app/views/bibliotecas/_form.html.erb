@@ -1,6 +1,6 @@
 <%= form_for(@nueva_biblioteca) do |f| %>
 <% if @nueva_biblioteca.errors.any? %>
-	<div id="error_explanation">
+	<div id="alert alert-danger">
       <h2><%= pluralize(@nueva_biblioteca.errors.count, "error") %> antes de guardar:</h2>
 		<ul>
 			<% @nueva_biblioteca.errors.full_messages.each do |message| %>
@@ -10,28 +10,40 @@
 	</div>
 <% end %>
 
-	<div class="field">
-		<%= f.label :nombre %>
-		<%= f.text_field :nombre, {:size => "30", :maxlength => "50"} %>	
+	<div class="control-group">
+		<%= f.label :nombre, class: "control-label" %>
+		<div class="controls">
+			<%= f.text_field :nombre, class: "input-xlarge", required: true, placeholder: "Nombre de la biblioteca" %>	
+		</div>
 	</div>
-	<div class="field">
-		<%= f.label :direccion %>
-		<%= f.text_area :direccion %>
+	<div class="control-group">
+		<%= f.label :dirección, class: "control-label" %>
+		<div class="controls">
+			<%= f.text_area :direccion, class: "input-xlarge", required: true, placeholder: "Dirección" %>
+		</div>
 	</div>
-	<div class="field">
-		<%= f.label :telefono %>
-		<%= f.text_field :telefono, {:size => "10", :maxlength => "8"} %>
+	<div class="control-group">
+		<%= f.label :teléfono, class: "control-label" %>
+		<div class="controls">
+			<%= f.text_field :telefono, class: "input-xlarge", required: true, placeholder: "Teléfono" %>
+		</div>
 	</div>
-	<div class="field">
-		<%= f.label :email %>
-		<%= f.text_field :email, {:size => "35", :maxlength => "40"} %>
+	<div class="control-group">
+		<%= f.label :email, class: "control-label" %>
+		<div class="controls">
+			<%= f.text_field :email, class: "input-xlarge", required: true, placeholder: "correo@servidordecorreo" %>
+		</div>
 	</div>
-	<div class="field">
-		<%= f.label :logo %>
-		<%= f.file_field :logo, {:size => "80", :maxlength => "250"} %>
+	<div class="control-group">
+		<%= f.label :logo, class: "control-label" %>
+		<div class="controls">
+			<%= f.file_field :logo, class: "input-xlarge", placeholder: "Logo de la biblioteca" %>
+		</div>
 	</div>
 
-	<div class="actions">
-		<%= f.submit 'Guardar'%>
+	<div class="control-group">
+		<div class="controls">
+			<%= f.submit 'Guardar', class: "btn btn-large btn-primary"%>
+		</div>
 	</div>
 <% end %>

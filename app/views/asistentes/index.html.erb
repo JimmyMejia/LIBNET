@@ -1,40 +1,55 @@
-<h2>Lista de Asistentes</h2>
-<p id="notice"><%= notice %></p>
-<table border="1">
-	<tr>
-		<th>IdAsistente</th>
-		<th>IdBiblioteca</th>
-		<th>Nombre</th>
-		<th>Dirección</th>
-		<th>Teléfono</th>
-		<th>Celular</th>
-		<th>Email</th>
-		<th>Estado</th>
-		<th></th>
-		<th></th>
-		<th></th>
-	</tr>
-	<% @asistentes.each do |a| %>
-	<tr>
-		<td><%= a.id %></td>
-		<td><%= a.biblioteca_id %></td>
-		<!--<td>FALTA DATO</td>-->
-		<td><%= a.nombre %></td>
-		<td><%= a.direccion %></td>
-		<td><%= a.telefono %></td>
-		<td><%= a.celular %></td>
-		<td><%= a.email %></td>
-		<% if (a.estado == 1) %>
-		<td><%= a.estado = "Activo" %></td>
-		<% else %>
-		<td><%= a.estado = "Inactivo" %></td>
-		<% end %>
-		<td><%= link_to 'Ver', a %></td>
-		<td><%= link_to 'Editar', edit_asistente_path(a) %></td>
-		<td><%= link_to 'Eliminar', a, method: :delete, data: { confirm: 'Esta seguro?' }%></td>
-	</tr>
-	<% end %>
+<div class="container_table">
+	<p>
+		<h2>Lista de Asistentes</h2>
+	</p>
 
-</table>
+	<div class="alert alert-success">
+		<p><%= notice %></p>
+	</div>	
 
-<%= link_to 'Nuevo Asistente', nuevoasistente_path%>
+	<div class="table-responsive">
+		<table class = "table table-striped">
+			<thead>
+				<tr>
+					<th>IdAsistente</th>
+					<th>IdBiblioteca</th>
+					<th>Nombre</th>
+					<th>Dirección</th>
+					<th>Teléfono</th>
+					<th>Celular</th>
+					<th>Email</th>
+					<th>Estado</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @asistentes.each do |a| %>
+				<tr>
+					<td><%= a.id %></td>
+					<td><%= a.biblioteca_id %></td>
+					<!--<td>FALTA DATO</td>-->
+					<td><%= a.nombre %></td>
+					<td><%= a.direccion %></td>
+					<td><%= a.telefono %></td>
+					<td><%= a.celular %></td>
+					<td><%= a.email %></td>
+					<% if (a.estado == 1) %>
+					<td><%= a.estado = "Activo" %></td>
+					<% else %>
+					<td><%= a.estado = "Inactivo" %></td>
+					<% end %>
+					<td><%= link_to 'Ver', a, class: "btn btn-link" %></td>
+					<td><%= link_to 'Editar', edit_asistente_path(a), class: "btn btn-link" %></td>
+					<td><%= link_to 'Eliminar', a, method: :delete, data: { confirm: 'Esta seguro?' }, class: "btn btn-link" %></td>
+				</tr>
+			</tbody>
+			<% end %>
+
+		</table>
+	</div>
+
+	<%= link_to 'Nuevo Asistente', nuevoasistente_path, class: "btn btn-link" %>
+</div>

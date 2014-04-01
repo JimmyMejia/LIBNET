@@ -1,26 +1,34 @@
-<h1>Tipos de Préstamos</h1>
+<div class="container_table">
+	<p>
+		<h1>Tipos de Préstamos</h1>
+	</p>
+	<div class="alert alert-success">
+		<p><%= notice %></p>
+	</div>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Id Tipo Préstamo</th>
+					<th>Tipo Préstamo</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @tipoprestamos.each do |tp| %>
+					<tr>
+						<td><%= tp.id %></td>
+						<td><%= tp.descripcion %></td>
+						<td><%= link_to 'Ver', tp, class: "btn btn-link" %></td>
+						<td><%= link_to 'Editar', edit_tipoprestamo_path(tp), class: "btn btn-link" %></td>
+						<td><%= link_to 'Eliminar', tp, method: :delete, data: { confirm: "Esta seguro? " }, class: "btn btn-link" %></td>
+					</tr>
+				<% end %>		
+			</tbody>
+		</table>
+	</div>
 
-<table border="1">
-	<thead>
-		<tr>
-			<th>Id Tipo Préstamo</th>
-			<th>Tipo Préstamo</th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @tipoprestamos.each do |tp| %>
-			<tr>
-				<td><%= tp.id %></td>
-				<td><%= tp.descripcion %></td>
-				<td><%= link_to 'Ver', tp %></td>
-				<td><%= link_to 'Editar', edit_tipoprestamo_path(tp) %></td>
-				<td><%= link_to 'Eliminar', tp, method: :delete, data: { confirm: "Esta seguro? " } %></td>
-			</tr>
-		<% end %>		
-	</tbody>
-</table>
-
-<%= link_to 'Nuevo Tipo de Préstamo', nuevotipoprestamo_path %>
+	<%= link_to 'Nuevo Tipo de Préstamo', nuevotipoprestamo_path, class: "btn btn-link" %>
+</div>

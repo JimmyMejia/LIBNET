@@ -36,7 +36,7 @@ class TipousuariosController < ApplicationController
   def destroy
   	@nuevo_tipousuario.destroy
   	respond_to do |format|
-  		format.html { redirect_to tipousuarios_path }
+  		format.html { redirect_to tipousuarios_path, notice: "Tipo de usuario eliminado satisfactoriamente." }
   	end
   end
 

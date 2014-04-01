@@ -1,26 +1,38 @@
-<h2>Lista de Marc por Material</h2>
-<p id="notice"><%= notice %></p>
-<table border="1">
-	<tr>
-		<th>Id Marc</th>
-		<th>Marc</th>
-		<th>Id Material</th>
-		<th>Material</th>
-		<th></th>
-		<th></th>
-		<th></th>
-	</tr>
-	<% @marcxmateriales.each do |mm| %>
-	<tr>
-		<td><%= mm.marc_id %></td>
-		<td><%=  %></td>
-		<td><%= mm.tipomaterial_id %></td>
-		<td><%=  %></td>
-		<td><%= link_to 'Ver', mm %></td>
-		<td><%= link_to 'Editar', edit_marc_x_material_path(mm) %></td>
-		<td><%= link_to 'Eliminar', mm, method: :delete, data: { confirm: 'Esta seguro?' }%></td>
-	</tr>
-	<% end %>
-</table>
+<div class="container_table">
+	<p>
+		<h2>Lista de Marc por Material</h2>
+	</p>
+	<div class="alert alert-success">
+		<p><%= notice %></p>
+	</div>
+	<div class="table_responsive">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Id Marc</th>
+				<th>Marc</th>
+				<th>Id Material</th>
+				<th>Material</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @marcxmateriales.each do |mm| %>
+				<tr>
+					<td><%= mm.marc_id %></td>
+					<td><%=  %></td>
+					<td><%= mm.tipomaterial_id %></td>
+					<td><%=  %></td>
+					<td><%= link_to 'Ver', mm, class: "btn btn-link" %></td>
+					<td><%= link_to 'Editar', edit_marc_x_material_path(mm), class: "btn btn-link" %></td>
+					<td><%= link_to 'Eliminar', mm, method: :delete, data: { confirm: 'Esta seguro?' }, class: "btn btn-link" %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+	</div>
 
-<%= link_to 'Nuevo Marc por Material', nuevomarc_x_material_path %>
+	<%= link_to 'Nuevo Marc por Material', nuevomarc_x_material_path, class: "btn btn-link" %>
+</div>

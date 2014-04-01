@@ -42,8 +42,8 @@ class IdiomasController < ApplicationController
   def destroy
     @nuevo_idioma.destroy
       respond_to do |format|
-      format.html { redirect_to idiomas_url }
-    end
+        format.html { redirect_to idiomas_url, notice: "Idioma eliminado satisfactoriamente." }
+      end
   end
 
   def set_idioma

@@ -21,7 +21,7 @@ class MarcXMaterialsController < ApplicationController
   		if @nuevo_marcxmaterial.save
   			format.html { redirect_to @nuevo_marcxmaterial, notice: "MarcXMaterial guardado correctamente." }
   		else
-  			format.html { render actio: "new" }
+  			format.html { render action: "new" }
   		end
   	end
   end

@@ -1,6 +1,6 @@
 <%= form_for(@nuevo_idioma) do |f| %>
 	<% if @nuevo_idioma.errors.any? %>
-		<div id="error_explanation">
+		<div id="alert alert-danger">
 			<h2><%= pluralize(@nuevo_idioma.errors.count, "error")%> antes de guardar:</h2>
 			<ul>
 				<% @nuevo_idioma.errors.full_messages.each do |message| %>
@@ -10,13 +10,17 @@
 		</div>
 	<% end %>
 
-	<div class="field">
-		<%= f.label :idioma %>
-		<%= f.text_field :idioma, { size: 25, maxlength: 50 } %>
+	<div class="control-group">
+		<%= f.label :idioma, class: "control-label" %>
+		<div class="controls">
+			<%= f.text_field :idioma, class: "input-xlarge", required: true, placeholder: "Idioma" %>
+		</div>
 	</div>
 
-	<div class="actions">
-		<%= f.submit 'Guardar' %>
+	<div class="group-control">
+		<div class="controls">
+			<%= f.submit 'Guardar', class: "btn btn-large btn-primary" %>
+		</div>
 	</div>
 
 <% end %>

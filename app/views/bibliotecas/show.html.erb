@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<div class="alert alert-success">
+	<p><%= notice %></p>
+</div>
 
 <p><strong>Nombre:</strong>
 	<%= @nueva_biblioteca.nombre %>	
@@ -28,5 +30,5 @@
 	<%= @nueva_biblioteca.logo %>
 </p>
 
-<%= link_to 'Editar', edit_biblioteca_path(@nueva_biblioteca)%>
-<%= link_to 'Atras', bibliotecas_path %>
+<%= link_to 'Editar', edit_biblioteca_path(@nueva_biblioteca), class: "btn btn-link" %> |
+<%= link_to 'Atras', bibliotecas_path, class: "btn btn-link" %>

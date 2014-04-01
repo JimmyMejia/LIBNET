@@ -1,8 +1,10 @@
-<p id="notice"><%= notice %></p>
+<div class="alert alert-success">
+	<p><%= notice %></p>
+</div>
 
-<p><strong>Pais</strong>
+<p><strong>Pais:</strong>
 	<%= @nuevo_pais.pais %>
 </p>
 
-<%= link_to 'Editar', edit_pais_path(@nuevo_pais) %>
-<%= link_to 'Atras', paises_path %>
+<%= link_to 'Editar', edit_pais_path(@nuevo_pais), class: "btn btn-link" %> |
+<%= link_to 'Atras', paises_path, class: "btn btn-link" %>

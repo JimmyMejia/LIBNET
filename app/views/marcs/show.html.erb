@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<div class="alert alert-success">
+	<p><%= notice %></p>
+</div>
 
 <p><strong>Codigo Marc:</strong>
 	<%= @nuevo_marc.codigomarc %>
@@ -16,5 +18,5 @@
 	<%= @nuevo_marc.identificador %>
 </p>
 
-<%= link_to 'Editar', edit_marc_path(@nuevo_marc) %>
-<%= link_to 'Atras', marcs_path %>
+<%= link_to 'Editar', edit_marc_path(@nuevo_marc), class: "btn btn-link" %> |
+<%= link_to 'Atras', marcs_path, class: "btn btn-link" %>

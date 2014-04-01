@@ -39,8 +39,11 @@ class BibliotecasController < ApplicationController
 
   def destroy
     @nueva_biblioteca.destroy
-    flash[:notice] = "Biblioteca eliminada satisfactoriamente."
-    redirect_to bibliotecas_path
+    #flash[:notice] = "Biblioteca eliminada satisfactoriamente."
+    #redirect_to bibliotecas_path
+    respond_to do |format|
+        format.html { redirect_to bibliotecas_path, notice: "Biblioteca eliminada satisfactoriamente." }
+      end
   end
 
   def params_biblioteca

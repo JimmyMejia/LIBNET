@@ -1,6 +1,6 @@
 <%= form_for(@nuevo_tipousuario) do |f| %>
 	<% if @nuevo_tipousuario.errors.any? %>
-		<div id="error_explanation">
+		<div id="alert alert-danger">
 			<h2><%= pluralize(@nuevo_tipousuario.errors.count,"error") %> antes de guardar:</h2>
 			<ul>
 				<% @nuevo_tipousuario.errors.full_messages.each do |message| %>
@@ -10,13 +10,17 @@
 		</div>
 	<% end %>
 
-	<div class="field">
-		<%= f.label :descripcion %>
-		<%= f.text_field :descripcion, { size: 30, maxlength: 50 } %>
+	<div class="control-group">
+		<%= f.label :descripción, class: "group-label" %>
+		<div class="controls">
+			<%= f.text_field :descripcion, class: "input-xlarge", required: true, placeholder: "Tipo de usuario" %>
+		</div>
 	</div>
 
-	<div class="actions">
-		<%= f.submit 'Guardar' %>
+	<div class="control-group">
+		<div class="controls">
+			<%= f.submit 'Guardar', class: "btn btn-large btn-primary" %>
+		</div>
 	</div>
 
 <% end %>

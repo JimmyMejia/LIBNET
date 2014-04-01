@@ -1,7 +1,7 @@
-<%= form_for @nuevo_marc do |f| %>
+<%= form_for (@nuevo_marc) do |f| %>
 
 <% if @nuevo_marc.errors.any? %>
-	<div id="error_explanation">
+	<div id="alert alert-danger">
 		<h2><%= pluralize(@nuevo_marc.errors.count, "error") %> antes de guardar:</h2>
 		<ul>
 			<%@nuevo_marc.errors.full_messages.each do |message| %>
@@ -11,28 +11,38 @@
 	</div>
 <% end %>
 
-<div class="field">
-	<%= f.label :codigomarc %>
-	<%= f.text_field :codigomarc, { size: "20", maxlength: "25" } %>
+<div class="control-group">
+	<%= f.label :codigomarc, class: "control-label" %>
+	<div class="controls">
+		<%= f.text_field :codigomarc, class: "input-xlarge", required: true, placeholder: "Codigo marc" %>
+	</div>
 </div>
 
-<div class="field">
-	<%= f.label :titulo %>
-	<%= f.text_area :titulo, { size: "20", maxlength: "255", row: "5" } %>
+<div class="control-group">
+	<%= f.label :titulo, class: "control-label" %>
+	<div class="controls">
+		<%= f.text_area :titulo, class: "input-xlarge", required: true, placeholder: "Titulo codigo marc" %>
+	</div>
 </div>
 
-<div class="field">
-	<%= f.label :descripción %>
-	<%= f.text_area :descripcion, { size: "20", row: "5" } %> 
+<div class="control-group">
+	<%= f.label :descripción, class: "control-label" %>
+	<div class="controls">
+		<%= f.text_area :descripcion, class: "input-xlarge", required: true, placeholder: "Descripción" %> 
+	</div>
 </div>
 
-<div class="field">
-	<%= f.label :identificador %>
-	<%= f.text_field :identificador, { size: "30", maxlength: "50" } %>
+<div class="control-group">
+	<%= f.label :identificador, class: "control-label" %>
+	<div class="controls">
+		<%= f.text_field :identificador, class: "input-xlarge", required: true, placeholder: "Identificador" %>
+	</div>
 </div>
 
-<div class="actions">
-	<%= f.submit 'Guardar'%>
+<div class="control-group">
+	<div class="controls">
+		<%= f.submit 'Guardar', class: "btn btn-large btn-primary" %>
+	</div>
 </div>
 
 <% end %>

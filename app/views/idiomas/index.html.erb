@@ -1,27 +1,34 @@
-<h1>Lista de Idiomas</h1>
+<div class="container_table">
+	<p>
+		<h1>Lista de Idiomas</h1>
+	</p>
+	<div class="alert alert-success">
+		<p><%= notice %></p>
+	</div>
+	<div class="table-responsive">
+		<table class= "table table-striped">
+			<thead>
+				<tr>
+					<th>Id Idioma</th>
+					<th>Idioma</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @idiomas.each do |i| %>
+					<tr>
+						<td><%= i.id %></td>
+						<td><%= i.idioma %></td>
+						<td><%= link_to 'Ver', i, class: "btn btn-link" %></td>
+						<td><%= link_to 'Editar', edit_idioma_path(i), class: "btn btn-link" %></td>
+						<td><%= link_to 'Eliminar', i, method: :delete, data: { confirm: "Esta seguro?" }, class: "btn btn-link" %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
 
-<table border="1">
-	<thead>
-		<tr>
-			<th>Id Idioma</th>
-			<th>Idioma</th>
-			<th></th>
-			<th></th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @idiomas.each do |i| %>
-			<tr>
-				<td><%= i.id %></td>
-				<td><%= i.idioma %></td>
-				<td><%= link_to 'Ver', i %></td>
-				<td><%= link_to 'Editar', edit_idioma_path(i)%></td>
-				<td><%= link_to 'Eliminar', i, method: :delete, data: { confirm: "Esta seguro?" } %></td>
-			</tr>
-		<% end %>
-	</tbody>
-
-</table>
-<br>
-<%= link_to 'Nuevo Idioma', nuevoidioma_path %>
+	<%= link_to 'Nuevo Idioma', nuevoidioma_path, class: "btn btn-link" %>
+</div>

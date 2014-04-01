@@ -1,29 +1,39 @@
-<h2>Lista de Marc</h2>
-<p id="notice"><%= notice %></p>
-<table border="1">
-	<tr>
-		<th>IdMarc</th>
-		<th>Codigomarc</th>
-		<th>Titulo</th>
-		<th>Descripción</th>
-		<th>Idenfiticador</th>
-		<th></th>
-		<th></th>
-		<th></th>
-	</tr>
-	<% @marcs.each do |m| %>
-	<tr>
-		<td><%= m.id %></td>
-		<td><%= m.codigomarc %></td>
-		<td><%= m.titulo %></td>
-		<td><%= m.descripcion %></td>
-		<td><%= m.identificador %></td>
-		<td><%= link_to 'Ver', m %></td>
-		<td><%= link_to 'Editar', edit_marc_path(m) %></td>
-		<td><%= link_to 'Eliminar', m, method: :delete, data: { confirm: 'Esta seguro?' }%></td>
-	</tr>
-	<% end %>
-
-</table>
-
-<%= link_to 'Nuevo Marc', nuevomarc_path %>
+<div class="container_table">
+	<p>
+		<h2>Lista de Marc</h2>
+	</p>
+	<div class="alert alert-success">
+		<p><%= notice %></p>
+	</div>
+	<div class="table-responsive">
+		<table class = "table table-striped">
+			<thead>
+				<tr>
+					<th>IdMarc</th>
+					<th>Codigomarc</th>
+					<th>Titulo</th>
+					<th>Descripción</th>
+					<th>Idenfiticador</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @marcs.each do |m| %>
+					<tr>
+						<td><%= m.id %></td>
+						<td><%= m.codigomarc %></td>
+						<td><%= m.titulo %></td>
+						<td><%= m.descripcion %></td>
+						<td><%= m.identificador %></td>
+						<td><%= link_to 'Ver', m, class: "btn btn-link" %></td>
+						<td><%= link_to 'Editar', edit_marc_path(m), class: "btn btn-link" %></td>
+						<td><%= link_to 'Eliminar', m, method: :delete, data: { confirm: 'Esta seguro?' }, class: "btn btn-link"%></td>
+					</tr>
+				<% end %>	
+			</tbody>
+		</table>
+	</div>
+	<%= link_to 'Nuevo Marc', nuevomarc_path, class: "btn btn-link" %>
+</div>

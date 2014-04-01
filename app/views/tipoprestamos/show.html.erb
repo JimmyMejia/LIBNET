@@ -1,8 +1,10 @@
-<p id="notice"><%= notice %></p>
+<div class="alert alert-success">
+	<p><%= notice %></p>
+</div>
 
-<p><strong>Descripción</strong>
+<p><strong>Descripción:</strong>
 	<%= @nuevo_tipoprestamo.descripcion %>
 </p>
 
-<%= link_to 'Editar', edit_tipoprestamo_path(@nuevo_tipoprestamo) %> 
-<%= link_to 'Atras', tipoprestamos_path %>
+<%= link_to 'Editar', edit_tipoprestamo_path(@nuevo_tipoprestamo), class: "btn btn-link" %> |
+<%= link_to 'Atras', tipoprestamos_path, class: "btn btn-link" %>

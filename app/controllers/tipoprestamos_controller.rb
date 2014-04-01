@@ -17,7 +17,7 @@ class TipoprestamosController < ApplicationController
 
   	respond_to do |format|
   		if @nuevo_tipoprestamo.save
-  			format.html { redirect_to @nuevo_tipoprestamo, notice: "Tipo préstamo almacenado satisfactoriamente." }
+  			format.html { redirect_to @nuevo_tipoprestamo, notice: "Tipo prestamo almacenado satisfactoriamente." }
   		else
   			format.html { render action: "new" }
   		end
@@ -27,7 +27,7 @@ class TipoprestamosController < ApplicationController
   def update
   	respond_to do |format|
   		if @nuevo_tipoprestamo.update(tipoprestamo_params)
-  			format.html { redirect_to @nuevo_tipoprestamo, notice: "Tipo préstamo actualizado correctamente." }
+  			format.html { redirect_to @nuevo_tipoprestamo, notice: "Tipo prestamo actualizado correctamente." }
 		else
 			format.html { render action: "edit" } 	
   		end
@@ -37,7 +37,7 @@ class TipoprestamosController < ApplicationController
   def destroy
   	@nuevo_tipoprestamo.destroy
   	respond_to do |format|
-  		format.html { redirect_to tipoprestamos_path }
+  		format.html { redirect_to tipoprestamos_path, notice: "Tipo prestamo eliminado satisfactoriamente." }
   	end
   end
 

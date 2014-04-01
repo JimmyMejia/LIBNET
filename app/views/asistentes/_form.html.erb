@@ -1,7 +1,8 @@
 <%= form_for(@nuevo_asistente) do |f| %>
 
 <% if @nuevo_asistente.errors.any? %>
-	<div id="error_explanation">
+	<!-- <div id="error_explanation"> -->
+	<div id="alert alert-danger">
 		<h2><%= pluralize(@nuevo_asistente.errors.count, "error") %>
 			antes de guardar: </h2>
 		<ul>
@@ -12,40 +13,51 @@
 	</div>
 <% end %>
 
-<div class="field">
+<div class="control-group">
 	<%= f.label :biblioteca_id %>
-	<!--<select name="biblioteca_id" id="biblioteca_id" >
-		<--% Biblioteca.find(:all).each do |a| %>
-			<option value="<--%=a.id%>"><--%= a.nombre %></option>
-		<--% end %>		
-	</select>-->
-
-	<%= f.select(:biblioteca_id, Biblioteca.where("estado = 1").order("id ASC").collect {|u| [u.nombre, u.id]}) %> <!--find(:all)-->
+	<div class="controls">
+		<select name="biblioteca_id" id="biblioteca_id" class: "input-xlarge">
+			<% @bibliotecas.each do |b| %>
+				<option value="<%= b.id %>"><%= b.nombre %></option>
+			<% end %>		
+		</select>
+		<!--<--%= f.select(:biblioteca_id, Biblioteca.where("estado = 1").order("id ASC").collect {|tm| [tm.nombre, tm.id]}) %> -->
+	</div>
 </div>
 
-<div class="field">
-	<%= f.label :nombre %>
-	<%= f.text_field :nombre, {size: "35", maxlength: "40"} %>
+<div class="control-group">
+	<%= f.label :nombre, class: "control-label" %>
+	<div class="controls">
+		<%= f.text_field :nombre, class: "input-xlarge", required: true, placeholder: "Nombre"  %>
+	</div>
 </div>
 
-<div class="field">
-	<%= f.label :dirección %>
-	<%= f.text_field :direccion %>
+<div class="control-group">
+	<%= f.label :dirección, class: "control-label" %>
+	<div class="controls">
+		<%= f.text_area :direccion, class: "input-xlarge", required: true, placeholder: "Dirección" %>
+	</div>
 </div>
 
-<div class="field">
-	<%= f.label :teléfono %>
-	<%= f.text_field :telefono, {size: "10", maxlength: "8"} %>
+<div class="control-group">
+	<%= f.label :teléfono, class: "control-label" %>
+	<div class="controls">
+		<%= f.phone_field :telefono, class: "input-xlarge", placeholder: "Teléfono"  %>
+	</div>
 </div>
 
-<div class="field">
-	<%= f.label :celular %>
-	<%= f.text_field :celular, {size:"10", maxlength: "8"} %>
+<div class="control-group">
+	<%= f.label :celular, class: "control-label" %>
+	<div class="controls">
+		<%= f.phone_field :celular, class: "input-xlarge", placeholder: "Celular" %>
+	</div>
 </div>
 
-<div class="field">
-	<%= f.label :email %>
-	<%= f.text_field :email, {size: "35", maxlength: "40"} %>
+<div class="control-group">
+	<%= f.label :email , class: "control-label"%>
+	<div class="controls">
+		<%= f.text_field :email, class: "input-xlarge", required: true, placeholder: "correo@servidordecorreo"  %>
+	</div>
 </div>
 
 <!--<div class="field">
@@ -53,8 +65,10 @@
 	<--%= select_tag(:option, options_for_select([['Activo', 1], ['Inactivo', 0]], selected: :option )) %>
 </div>-->
 
-<div class="actions">
-	<%= f.submit 'Guardar' %>
+<div class="control-group">
+	<div class="controls">
+		<%= f.submit 'Guardar', class: "btn btn-large btn-primary" %>
+	</div>
 </div>
 	
 <% end %>
