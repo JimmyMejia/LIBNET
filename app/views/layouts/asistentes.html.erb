@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Usuarios</title>
+	<%= stylesheet_link_tag "application", media: "all" %>
+	<%= javascript_include_tag "application" %>
+</head>
+	
+<header>	
+		<div class="row">
+			<div class="col-xs-8">
+				<p class="text-left">Libnet</p>
+				<p class="text-left">#Nombre de la biblioteca</p>
+				<p class="text-left">#Empresa/instituci&oacuten</p>
+			</div>
+				
+			<div class="col-xs-4">
+				<!-- <p class="text-right">JimmyMejia</p>
+				<p class="text-right">Cerrar sesion</p> -->
+				<p class="text-right"><%= link_to 'JimmyMejia', login_path, class:"btn-link" %></p>
+				<p class="text-right"><%= link_to 'Cerrar Sesion', logout_path, class:"btn-link" %></p>
+			</div>
+		</div>
+</header>
+
+<nav class="navbar navbar-default" role="navigation">
+  <!-- El logotipo y el icono que despliega el menú se agrupan
+       para mostrarlos mejor en los dispositivos móviles -->
+		 <!--  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse"
+		            data-target=".navbar-ex1-collapse">
+		      <span class="sr-only">Desplegar navegación</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="#">Logotipo</a>
+		  </div>
+		  -->
+		  <!-- Agrupar los enlaces de navegación, los formularios y cualquier
+		       otro elemento que se pueda ocultar al minimizar la barra -->
+		  <div class="collapse navbar-collapse navbar-ex1-collapse">
+		    <ul class="nav navbar-nav">
+		      <li class="active"><a href="#">Enlace #1</a></li>
+		      <li><a href="#">Enlace #2</a></li>
+		      <li class="dropdown">
+		        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		          Menú #1 <b class="caret"></b>
+		        </a>
+		        <ul class="dropdown-menu">
+		          <li><a href="#">Acción #1</a></li>
+		          <li><a href="#">Acción #2</a></li>
+		          <li><a href="#">Acción #3</a></li>
+		          <li class="divider"></li>
+		          <li><a href="#">Acción #4</a></li>
+		          <li class="divider"></li>
+		          <li><a href="#">Acción #5</a></li>
+		        </ul>
+		      </li>
+		    </ul>
+		 
+		    <form class="navbar-form navbar-left" role="search">
+		      <div class="form-group">
+		        <input type="text" class="form-control" placeholder="Buscar">
+		      </div>
+		      <button type="submit" class="btn btn-default">Enviar</button>
+		    </form>
+		 
+		    <ul class="nav navbar-nav navbar-right">
+		      <li><a href="#">Enlace #3</a></li>
+		      <li class="dropdown">
+		        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		          Menú #2 <b class="caret"></b>
+		        </a>
+		        <ul class="dropdown-menu">
+		          <li><a href="#">Acción #1</a></li>
+		          <li><a href="#">Acción #2</a></li>
+		          <li><a href="#">Acción #3</a></li>
+		          <li class="divider"></li>
+		          <li><a href="#">Acción #4</a></li>
+		        </ul>
+		      </li>
+		    </ul>
+		  </div>
+</nav>
+
+<body>
+	<div class="container">
+		<%= yield %>
+	</div>
+</body>
+<footer>
+	<div id="footer">
+	<p class="text-center">&#169 Derechos reservados <%= Time.now.year %></p>
+	</div>
+</footer>
+
+</html>
